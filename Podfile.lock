@@ -1,0 +1,16 @@
+PODS:
+  - SwiftyXMLParser (5.3.0)
+
+DEPENDENCIES:
+  - SwiftyXMLParser
+
+SPEC REPOS:
+  trunk:
+    - SwiftyXMLParser
+
+SPEC CHECKSUMS:
+  SwiftyXMLParser: 0985085180f1ee01916cd9b5c1a4f0a8f493c084
+
+PODFILE CHECKSUM: 76c9594c6a653f0ae2bd9d0174df45622bce55e1
+
+COCOAPODS: 1.10.1

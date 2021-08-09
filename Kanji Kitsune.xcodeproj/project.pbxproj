@@ -1,0 +1,693 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4E2C6DAE26B2240F00A28831 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2C6DAD26B2240F00A28831 /* Canvas.swift */; };
+		4E2C6DB026B2893C00A28831 /* KanjiQuizCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2C6DAF26B2893C00A28831 /* KanjiQuizCompletionViewController.swift */; };
+		4E2C6DB226B35B4A00A28831 /* KanjiDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2C6DB126B35B4A00A28831 /* KanjiDetailsViewController.swift */; };
+		4E2C6DB826B9D6A100A28831 /* DictionaryEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2C6DB726B9D6A100A28831 /* DictionaryEntryTableViewCell.swift */; };
+		4E2C6DBB26BB383800A28831 /* KanjiCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2C6DBA26BB383800A28831 /* KanjiCodable.swift */; };
+		4E2C6DBE26BB590800A28831 /* Kanji.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4E2C6DBD26BB590800A28831 /* Kanji.txt */; };
+		4E2C6DC026BB9AFB00A28831 /* KanjiResourcesCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2C6DBF26BB9AFB00A28831 /* KanjiResourcesCodable.swift */; };
+		4E2C6DC226BBEC1200A28831 /* KanjiResources.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4E2C6DC126BBEC1200A28831 /* KanjiResources.txt */; };
+		4E2C6DC426BE0FA400A28831 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2C6DC326BE0FA400A28831 /* ColorPalette.swift */; };
+		4E4D8BA526956FBA0014178A /* JMDictReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D8BA426956FBA0014178A /* JMDictReader.swift */; };
+		4E63DC96268E509C008A70E5 /* Dictionary Output File 1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4E63DC95268E509C008A70E5 /* Dictionary Output File 1.txt */; };
+		4E63DC9C268E560E008A70E5 /* Dictionary Metadata in Resources */ = {isa = PBXBuildFile; fileRef = 4E63DC9B268E560E008A70E5 /* Dictionary Metadata */; };
+		4E867D35267A955200803068 /* Kana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E867D34267A955200803068 /* Kana.swift */; };
+		4ECA11012679BD160034E0CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA11002679BD160034E0CA /* AppDelegate.swift */; };
+		4ECA11032679BD160034E0CA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA11022679BD160034E0CA /* SceneDelegate.swift */; };
+		4ECA11052679BD160034E0CA /* JLPTSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA11042679BD160034E0CA /* JLPTSelectionViewController.swift */; };
+		4ECA110A2679BD1A0034E0CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA11092679BD1A0034E0CA /* Assets.xcassets */; };
+		4ECA110D2679BD1A0034E0CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA110B2679BD1A0034E0CA /* LaunchScreen.storyboard */; };
+		4ECB141F268EC3BF00538D28 /* Dictionary Output File 2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB140C268EC3BF00538D28 /* Dictionary Output File 2.txt */; };
+		4ECB1420268EC3BF00538D28 /* Dictionary Output File 10.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB140D268EC3BF00538D28 /* Dictionary Output File 10.txt */; };
+		4ECB1421268EC3BF00538D28 /* Dictionary Output File 12.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB140E268EC3BF00538D28 /* Dictionary Output File 12.txt */; };
+		4ECB1422268EC3BF00538D28 /* Dictionary Output File 3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB140F268EC3BF00538D28 /* Dictionary Output File 3.txt */; };
+		4ECB1423268EC3BF00538D28 /* Dictionary Output File 15.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB1410268EC3BF00538D28 /* Dictionary Output File 15.txt */; };
+		4ECB1424268EC3BF00538D28 /* Dictionary Output File 4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB1411268EC3BF00538D28 /* Dictionary Output File 4.txt */; };
+		4ECB1425268EC3BF00538D28 /* Dictionary Output File 11.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB1412268EC3BF00538D28 /* Dictionary Output File 11.txt */; };
+		4ECB1426268EC3BF00538D28 /* Dictionary Output File 18.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB1413268EC3BF00538D28 /* Dictionary Output File 18.txt */; };
+		4ECB1427268EC3BF00538D28 /* Dictionary Output File 9.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB1414268EC3BF00538D28 /* Dictionary Output File 9.txt */; };
+		4ECB1428268EC3BF00538D28 /* Dictionary Output File 19.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB1415268EC3BF00538D28 /* Dictionary Output File 19.txt */; };
+		4ECB1429268EC3BF00538D28 /* Dictionary Output File 5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB1416268EC3BF00538D28 /* Dictionary Output File 5.txt */; };
+		4ECB142A268EC3BF00538D28 /* Dictionary Output File 7.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB1417268EC3BF00538D28 /* Dictionary Output File 7.txt */; };
+		4ECB142B268EC3BF00538D28 /* Dictionary Output File 14.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB1418268EC3BF00538D28 /* Dictionary Output File 14.txt */; };
+		4ECB142C268EC3BF00538D28 /* Dictionary Output File 17.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB1419268EC3BF00538D28 /* Dictionary Output File 17.txt */; };
+		4ECB142D268EC3BF00538D28 /* Dictionary Output File 6.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB141A268EC3BF00538D28 /* Dictionary Output File 6.txt */; };
+		4ECB142E268EC3BF00538D28 /* Dictionary Output File 8.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB141B268EC3BF00538D28 /* Dictionary Output File 8.txt */; };
+		4ECB142F268EC3BF00538D28 /* Dictionary Output File 20.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB141C268EC3BF00538D28 /* Dictionary Output File 20.txt */; };
+		4ECB1430268EC3BF00538D28 /* Dictionary Output File 16.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB141D268EC3BF00538D28 /* Dictionary Output File 16.txt */; };
+		4ECB1431268EC3BF00538D28 /* Dictionary Output File 13.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB141E268EC3BF00538D28 /* Dictionary Output File 13.txt */; };
+		4ECB1433268EE36A00538D28 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECB1432268EE36A00538D28 /* Entry.swift */; };
+		4ECB14352690CCED00538D28 /* WordExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECB14342690CCED00538D28 /* WordExtractor.swift */; };
+		4EF906A326A7D2D50009B98C /* KanjiQuizzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906A226A7D2D50009B98C /* KanjiQuizzer.swift */; };
+		4EF906A626A7EEBC0009B98C /* Kanji Kitsune.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906A426A7EEBC0009B98C /* Kanji Kitsune.xcdatamodeld */; };
+		4EF906BD26A7FC520009B98C /* Kanji+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906BB26A7FC520009B98C /* Kanji+CoreDataProperties.swift */; };
+		4EF906BE26A7FC520009B98C /* Kanji+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906BC26A7FC520009B98C /* Kanji+CoreDataClass.swift */; };
+		4EF906C426AA1F330009B98C /* Hint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906C326AA1F330009B98C /* Hint.swift */; };
+		4EF906C626AA220F0009B98C /* Transformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906C526AA220F0009B98C /* Transformers.swift */; };
+		4EF906CF26AA7A450009B98C /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906C726AA7A440009B98C /* Word+CoreDataProperties.swift */; };
+		4EF906D026AA7A450009B98C /* KanaReading+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906C826AA7A440009B98C /* KanaReading+CoreDataClass.swift */; };
+		4EF906D126AA7A450009B98C /* KanjiResources+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906C926AA7A440009B98C /* KanjiResources+CoreDataClass.swift */; };
+		4EF906D226AA7A450009B98C /* Meaning+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906CA26AA7A450009B98C /* Meaning+CoreDataProperties.swift */; };
+		4EF906D326AA7A450009B98C /* KanjiResources+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906CB26AA7A450009B98C /* KanjiResources+CoreDataProperties.swift */; };
+		4EF906D426AA7A450009B98C /* Meaning+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906CC26AA7A450009B98C /* Meaning+CoreDataClass.swift */; };
+		4EF906D526AA7A450009B98C /* KanaReading+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906CD26AA7A450009B98C /* KanaReading+CoreDataProperties.swift */; };
+		4EF906D626AA7A450009B98C /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906CE26AA7A450009B98C /* Word+CoreDataClass.swift */; };
+		4EF906DA26ACD14B0009B98C /* CoreDataCRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906D926ACD14B0009B98C /* CoreDataCRUD.swift */; };
+		4EF906DE26B0CA7C0009B98C /* JLPTLevelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906DD26B0CA7C0009B98C /* JLPTLevelTableViewCell.swift */; };
+		4EF906E026B0DD4A0009B98C /* JLPTLevelsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906DF26B0DD4A0009B98C /* JLPTLevelsTableView.swift */; };
+		4EF906E226B122CD0009B98C /* KanjiQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906E126B122CD0009B98C /* KanjiQuizViewController.swift */; };
+		4EF906E426B1CD7B0009B98C /* SampleWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906E326B1CD7A0009B98C /* SampleWordsViewController.swift */; };
+		BC8EAB00E3F6E73D49A0928C /* Pods_Kanji_Kitsune.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F615A4BDE70E66E45C8999 /* Pods_Kanji_Kitsune.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		07F615A4BDE70E66E45C8999 /* Pods_Kanji_Kitsune.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kanji_Kitsune.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		202DA595FEFE07885CC6F6FF /* Pods-Kanji Kitsune.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kanji Kitsune.release.xcconfig"; path = "Target Support Files/Pods-Kanji Kitsune/Pods-Kanji Kitsune.release.xcconfig"; sourceTree = "<group>"; };
+		4E2C6DAD26B2240F00A28831 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
+		4E2C6DAF26B2893C00A28831 /* KanjiQuizCompletionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiQuizCompletionViewController.swift; sourceTree = "<group>"; };
+		4E2C6DB126B35B4A00A28831 /* KanjiDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiDetailsViewController.swift; sourceTree = "<group>"; };
+		4E2C6DB726B9D6A100A28831 /* DictionaryEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEntryTableViewCell.swift; sourceTree = "<group>"; };
+		4E2C6DBA26BB383800A28831 /* KanjiCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiCodable.swift; sourceTree = "<group>"; };
+		4E2C6DBD26BB590800A28831 /* Kanji.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Kanji.txt; sourceTree = "<group>"; };
+		4E2C6DBF26BB9AFB00A28831 /* KanjiResourcesCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiResourcesCodable.swift; sourceTree = "<group>"; };
+		4E2C6DC126BBEC1200A28831 /* KanjiResources.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = KanjiResources.txt; sourceTree = "<group>"; };
+		4E2C6DC326BE0FA400A28831 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		4E4D8BA426956FBA0014178A /* JMDictReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMDictReader.swift; sourceTree = "<group>"; };
+		4E63DC95268E509C008A70E5 /* Dictionary Output File 1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 1.txt"; sourceTree = "<group>"; };
+		4E63DC9B268E560E008A70E5 /* Dictionary Metadata */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Dictionary Metadata"; sourceTree = "<group>"; };
+		4E867D34267A955200803068 /* Kana.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kana.swift; sourceTree = "<group>"; };
+		4ECA10FD2679BD160034E0CA /* Kanji Kitsune.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kanji Kitsune.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ECA11002679BD160034E0CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4ECA11022679BD160034E0CA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4ECA11042679BD160034E0CA /* JLPTSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLPTSelectionViewController.swift; sourceTree = "<group>"; };
+		4ECA11092679BD1A0034E0CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4ECA110C2679BD1A0034E0CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4ECA110E2679BD1A0034E0CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4ECB140C268EC3BF00538D28 /* Dictionary Output File 2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 2.txt"; sourceTree = "<group>"; };
+		4ECB140D268EC3BF00538D28 /* Dictionary Output File 10.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 10.txt"; sourceTree = "<group>"; };
+		4ECB140E268EC3BF00538D28 /* Dictionary Output File 12.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 12.txt"; sourceTree = "<group>"; };
+		4ECB140F268EC3BF00538D28 /* Dictionary Output File 3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 3.txt"; sourceTree = "<group>"; };
+		4ECB1410268EC3BF00538D28 /* Dictionary Output File 15.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 15.txt"; sourceTree = "<group>"; };
+		4ECB1411268EC3BF00538D28 /* Dictionary Output File 4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 4.txt"; sourceTree = "<group>"; };
+		4ECB1412268EC3BF00538D28 /* Dictionary Output File 11.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 11.txt"; sourceTree = "<group>"; };
+		4ECB1413268EC3BF00538D28 /* Dictionary Output File 18.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 18.txt"; sourceTree = "<group>"; };
+		4ECB1414268EC3BF00538D28 /* Dictionary Output File 9.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 9.txt"; sourceTree = "<group>"; };
+		4ECB1415268EC3BF00538D28 /* Dictionary Output File 19.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 19.txt"; sourceTree = "<group>"; };
+		4ECB1416268EC3BF00538D28 /* Dictionary Output File 5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 5.txt"; sourceTree = "<group>"; };
+		4ECB1417268EC3BF00538D28 /* Dictionary Output File 7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 7.txt"; sourceTree = "<group>"; };
+		4ECB1418268EC3BF00538D28 /* Dictionary Output File 14.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 14.txt"; sourceTree = "<group>"; };
+		4ECB1419268EC3BF00538D28 /* Dictionary Output File 17.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 17.txt"; sourceTree = "<group>"; };
+		4ECB141A268EC3BF00538D28 /* Dictionary Output File 6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 6.txt"; sourceTree = "<group>"; };
+		4ECB141B268EC3BF00538D28 /* Dictionary Output File 8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 8.txt"; sourceTree = "<group>"; };
+		4ECB141C268EC3BF00538D28 /* Dictionary Output File 20.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 20.txt"; sourceTree = "<group>"; };
+		4ECB141D268EC3BF00538D28 /* Dictionary Output File 16.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 16.txt"; sourceTree = "<group>"; };
+		4ECB141E268EC3BF00538D28 /* Dictionary Output File 13.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 13.txt"; sourceTree = "<group>"; };
+		4ECB1432268EE36A00538D28 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		4ECB14342690CCED00538D28 /* WordExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordExtractor.swift; sourceTree = "<group>"; };
+		4EF906A226A7D2D50009B98C /* KanjiQuizzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiQuizzer.swift; sourceTree = "<group>"; };
+		4EF906A526A7EEBC0009B98C /* Kanji Kitsune.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Kanji Kitsune.xcdatamodel"; sourceTree = "<group>"; };
+		4EF906BB26A7FC520009B98C /* Kanji+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Kanji+CoreDataProperties.swift"; path = "Kanji Kitsune/Model/Generated Classes/Kanji+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		4EF906BC26A7FC520009B98C /* Kanji+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Kanji+CoreDataClass.swift"; path = "Kanji Kitsune/Model/Generated Classes/Kanji+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		4EF906C326AA1F330009B98C /* Hint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hint.swift; sourceTree = "<group>"; };
+		4EF906C526AA220F0009B98C /* Transformers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformers.swift; sourceTree = "<group>"; };
+		4EF906C726AA7A440009B98C /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataProperties.swift"; path = "Kanji Kitsune/Model/Generated Classes/Word+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		4EF906C826AA7A440009B98C /* KanaReading+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "KanaReading+CoreDataClass.swift"; path = "Kanji Kitsune/Model/Generated Classes/KanaReading+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		4EF906C926AA7A440009B98C /* KanjiResources+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "KanjiResources+CoreDataClass.swift"; path = "Kanji Kitsune/Model/Generated Classes/KanjiResources+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		4EF906CA26AA7A450009B98C /* Meaning+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Meaning+CoreDataProperties.swift"; path = "Kanji Kitsune/Model/Generated Classes/Meaning+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		4EF906CB26AA7A450009B98C /* KanjiResources+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "KanjiResources+CoreDataProperties.swift"; path = "Kanji Kitsune/Model/Generated Classes/KanjiResources+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		4EF906CC26AA7A450009B98C /* Meaning+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Meaning+CoreDataClass.swift"; path = "Kanji Kitsune/Model/Generated Classes/Meaning+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		4EF906CD26AA7A450009B98C /* KanaReading+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "KanaReading+CoreDataProperties.swift"; path = "Kanji Kitsune/Model/Generated Classes/KanaReading+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		4EF906CE26AA7A450009B98C /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataClass.swift"; path = "Kanji Kitsune/Model/Generated Classes/Word+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		4EF906D926ACD14B0009B98C /* CoreDataCRUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCRUD.swift; sourceTree = "<group>"; };
+		4EF906DD26B0CA7C0009B98C /* JLPTLevelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLPTLevelTableViewCell.swift; sourceTree = "<group>"; };
+		4EF906DF26B0DD4A0009B98C /* JLPTLevelsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLPTLevelsTableView.swift; sourceTree = "<group>"; };
+		4EF906E126B122CD0009B98C /* KanjiQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiQuizViewController.swift; sourceTree = "<group>"; };
+		4EF906E326B1CD7A0009B98C /* SampleWordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleWordsViewController.swift; sourceTree = "<group>"; };
+		F2743AA2D7CB601644EB40AD /* Pods-Kanji Kitsune.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kanji Kitsune.debug.xcconfig"; path = "Target Support Files/Pods-Kanji Kitsune/Pods-Kanji Kitsune.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4ECA10FA2679BD160034E0CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC8EAB00E3F6E73D49A0928C /* Pods_Kanji_Kitsune.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4E2C6DB926BB37BD00A28831 /* Codable Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4E2C6DBA26BB383800A28831 /* KanjiCodable.swift */,
+				4E2C6DBF26BB9AFB00A28831 /* KanjiResourcesCodable.swift */,
+			);
+			path = "Codable Classes";
+			sourceTree = "<group>";
+		};
+		4E2C6DBC26BB58E100A28831 /* JSON Files */ = {
+			isa = PBXGroup;
+			children = (
+				4E2C6DBD26BB590800A28831 /* Kanji.txt */,
+				4E2C6DC126BBEC1200A28831 /* KanjiResources.txt */,
+			);
+			path = "JSON Files";
+			sourceTree = "<group>";
+		};
+		4E63DC97268E50E0008A70E5 /* Dictionary Files */ = {
+			isa = PBXGroup;
+			children = (
+				4E63DC9B268E560E008A70E5 /* Dictionary Metadata */,
+				4E63DC95268E509C008A70E5 /* Dictionary Output File 1.txt */,
+				4ECB140C268EC3BF00538D28 /* Dictionary Output File 2.txt */,
+				4ECB140F268EC3BF00538D28 /* Dictionary Output File 3.txt */,
+				4ECB1411268EC3BF00538D28 /* Dictionary Output File 4.txt */,
+				4ECB1416268EC3BF00538D28 /* Dictionary Output File 5.txt */,
+				4ECB141A268EC3BF00538D28 /* Dictionary Output File 6.txt */,
+				4ECB1417268EC3BF00538D28 /* Dictionary Output File 7.txt */,
+				4ECB141B268EC3BF00538D28 /* Dictionary Output File 8.txt */,
+				4ECB1414268EC3BF00538D28 /* Dictionary Output File 9.txt */,
+				4ECB140D268EC3BF00538D28 /* Dictionary Output File 10.txt */,
+				4ECB1412268EC3BF00538D28 /* Dictionary Output File 11.txt */,
+				4ECB140E268EC3BF00538D28 /* Dictionary Output File 12.txt */,
+				4ECB141E268EC3BF00538D28 /* Dictionary Output File 13.txt */,
+				4ECB1418268EC3BF00538D28 /* Dictionary Output File 14.txt */,
+				4ECB1410268EC3BF00538D28 /* Dictionary Output File 15.txt */,
+				4ECB141D268EC3BF00538D28 /* Dictionary Output File 16.txt */,
+				4ECB1419268EC3BF00538D28 /* Dictionary Output File 17.txt */,
+				4ECB1413268EC3BF00538D28 /* Dictionary Output File 18.txt */,
+				4ECB1415268EC3BF00538D28 /* Dictionary Output File 19.txt */,
+				4ECB141C268EC3BF00538D28 /* Dictionary Output File 20.txt */,
+			);
+			path = "Dictionary Files";
+			sourceTree = "<group>";
+		};
+		4E63DC98268E517B008A70E5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4ECA110E2679BD1A0034E0CA /* Info.plist */,
+				4ECA110B2679BD1A0034E0CA /* LaunchScreen.storyboard */,
+				4ECA11002679BD160034E0CA /* AppDelegate.swift */,
+				4ECA11022679BD160034E0CA /* SceneDelegate.swift */,
+				4ECA11092679BD1A0034E0CA /* Assets.xcassets */,
+				4EF906A426A7EEBC0009B98C /* Kanji Kitsune.xcdatamodeld */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4E63DC99268E51BD008A70E5 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4ECA11042679BD160034E0CA /* JLPTSelectionViewController.swift */,
+				4E2C6DB126B35B4A00A28831 /* KanjiDetailsViewController.swift */,
+				4E2C6DAF26B2893C00A28831 /* KanjiQuizCompletionViewController.swift */,
+				4EF906E126B122CD0009B98C /* KanjiQuizViewController.swift */,
+				4EF906E326B1CD7A0009B98C /* SampleWordsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		4E63DC9A268E51CD008A70E5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4E2C6DB926BB37BD00A28831 /* Codable Classes */,
+				4EF906DB26B0BA500009B98C /* Generated Classes */,
+				4EF906D926ACD14B0009B98C /* CoreDataCRUD.swift */,
+				4ECB1432268EE36A00538D28 /* Entry.swift */,
+				4EF906C326AA1F330009B98C /* Hint.swift */,
+				4E4D8BA426956FBA0014178A /* JMDictReader.swift */,
+				4E867D34267A955200803068 /* Kana.swift */,
+				4EF906A226A7D2D50009B98C /* KanjiQuizzer.swift */,
+				4EF906C526AA220F0009B98C /* Transformers.swift */,
+				4ECB14342690CCED00538D28 /* WordExtractor.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4ECA10F42679BD160034E0CA = {
+			isa = PBXGroup;
+			children = (
+				4ECA10FF2679BD160034E0CA /* Kanji Kitsune */,
+				4ECA10FE2679BD160034E0CA /* Products */,
+				BDA446B3FA5BB2889002E552 /* Pods */,
+				C6F05D0523DB76A6DEBE36FA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4ECA10FE2679BD160034E0CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4ECA10FD2679BD160034E0CA /* Kanji Kitsune.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4ECA10FF2679BD160034E0CA /* Kanji Kitsune */ = {
+			isa = PBXGroup;
+			children = (
+				4E63DC9A268E51CD008A70E5 /* Model */,
+				4EF906DC26B0CA4A0009B98C /* Views */,
+				4E63DC99268E51BD008A70E5 /* View Controllers */,
+				4E63DC98268E517B008A70E5 /* Supporting Files */,
+				4E63DC97268E50E0008A70E5 /* Dictionary Files */,
+				4E2C6DBC26BB58E100A28831 /* JSON Files */,
+			);
+			path = "Kanji Kitsune";
+			sourceTree = "<group>";
+		};
+		4EF906DB26B0BA500009B98C /* Generated Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4EF906C826AA7A440009B98C /* KanaReading+CoreDataClass.swift */,
+				4EF906CD26AA7A450009B98C /* KanaReading+CoreDataProperties.swift */,
+				4EF906BC26A7FC520009B98C /* Kanji+CoreDataClass.swift */,
+				4EF906BB26A7FC520009B98C /* Kanji+CoreDataProperties.swift */,
+				4EF906C926AA7A440009B98C /* KanjiResources+CoreDataClass.swift */,
+				4EF906CB26AA7A450009B98C /* KanjiResources+CoreDataProperties.swift */,
+				4EF906CC26AA7A450009B98C /* Meaning+CoreDataClass.swift */,
+				4EF906CA26AA7A450009B98C /* Meaning+CoreDataProperties.swift */,
+				4EF906CE26AA7A450009B98C /* Word+CoreDataClass.swift */,
+				4EF906C726AA7A440009B98C /* Word+CoreDataProperties.swift */,
+			);
+			path = "Generated Classes";
+			sourceTree = "<group>";
+		};
+		4EF906DC26B0CA4A0009B98C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4E2C6DAD26B2240F00A28831 /* Canvas.swift */,
+				4EF906DD26B0CA7C0009B98C /* JLPTLevelTableViewCell.swift */,
+				4E2C6DB726B9D6A100A28831 /* DictionaryEntryTableViewCell.swift */,
+				4EF906DF26B0DD4A0009B98C /* JLPTLevelsTableView.swift */,
+				4E2C6DC326BE0FA400A28831 /* ColorPalette.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BDA446B3FA5BB2889002E552 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F2743AA2D7CB601644EB40AD /* Pods-Kanji Kitsune.debug.xcconfig */,
+				202DA595FEFE07885CC6F6FF /* Pods-Kanji Kitsune.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C6F05D0523DB76A6DEBE36FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07F615A4BDE70E66E45C8999 /* Pods_Kanji_Kitsune.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4ECA10FC2679BD160034E0CA /* Kanji Kitsune */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4ECA11112679BD1A0034E0CA /* Build configuration list for PBXNativeTarget "Kanji Kitsune" */;
+			buildPhases = (
+				A5542ABE519F5570E865FFBB /* [CP] Check Pods Manifest.lock */,
+				4ECA10F92679BD160034E0CA /* Sources */,
+				4ECA10FA2679BD160034E0CA /* Frameworks */,
+				4ECA10FB2679BD160034E0CA /* Resources */,
+				E0DE1A3E99DE0E56E3ED52C9 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Kanji Kitsune";
+			productName = "Kanji Kitsune";
+			productReference = 4ECA10FD2679BD160034E0CA /* Kanji Kitsune.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4ECA10F52679BD160034E0CA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					4ECA10FC2679BD160034E0CA = {
+						CreatedOnToolsVersion = 12.5;
+					};
+				};
+			};
+			buildConfigurationList = 4ECA10F82679BD160034E0CA /* Build configuration list for PBXProject "Kanji Kitsune" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4ECA10F42679BD160034E0CA;
+			productRefGroup = 4ECA10FE2679BD160034E0CA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4ECA10FC2679BD160034E0CA /* Kanji Kitsune */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4ECA10FB2679BD160034E0CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ECB1423268EC3BF00538D28 /* Dictionary Output File 15.txt in Resources */,
+				4ECA110D2679BD1A0034E0CA /* LaunchScreen.storyboard in Resources */,
+				4ECB1421268EC3BF00538D28 /* Dictionary Output File 12.txt in Resources */,
+				4ECB142D268EC3BF00538D28 /* Dictionary Output File 6.txt in Resources */,
+				4ECB1424268EC3BF00538D28 /* Dictionary Output File 4.txt in Resources */,
+				4ECB1425268EC3BF00538D28 /* Dictionary Output File 11.txt in Resources */,
+				4ECA110A2679BD1A0034E0CA /* Assets.xcassets in Resources */,
+				4ECB1428268EC3BF00538D28 /* Dictionary Output File 19.txt in Resources */,
+				4E63DC9C268E560E008A70E5 /* Dictionary Metadata in Resources */,
+				4ECB142A268EC3BF00538D28 /* Dictionary Output File 7.txt in Resources */,
+				4ECB1429268EC3BF00538D28 /* Dictionary Output File 5.txt in Resources */,
+				4ECB1422268EC3BF00538D28 /* Dictionary Output File 3.txt in Resources */,
+				4ECB1420268EC3BF00538D28 /* Dictionary Output File 10.txt in Resources */,
+				4ECB142E268EC3BF00538D28 /* Dictionary Output File 8.txt in Resources */,
+				4ECB141F268EC3BF00538D28 /* Dictionary Output File 2.txt in Resources */,
+				4ECB1431268EC3BF00538D28 /* Dictionary Output File 13.txt in Resources */,
+				4ECB142F268EC3BF00538D28 /* Dictionary Output File 20.txt in Resources */,
+				4E2C6DC226BBEC1200A28831 /* KanjiResources.txt in Resources */,
+				4E63DC96268E509C008A70E5 /* Dictionary Output File 1.txt in Resources */,
+				4ECB142C268EC3BF00538D28 /* Dictionary Output File 17.txt in Resources */,
+				4ECB1427268EC3BF00538D28 /* Dictionary Output File 9.txt in Resources */,
+				4E2C6DBE26BB590800A28831 /* Kanji.txt in Resources */,
+				4ECB1426268EC3BF00538D28 /* Dictionary Output File 18.txt in Resources */,
+				4ECB142B268EC3BF00538D28 /* Dictionary Output File 14.txt in Resources */,
+				4ECB1430268EC3BF00538D28 /* Dictionary Output File 16.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A5542ABE519F5570E865FFBB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Kanji Kitsune-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0DE1A3E99DE0E56E3ED52C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kanji Kitsune/Pods-Kanji Kitsune-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kanji Kitsune/Pods-Kanji Kitsune-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kanji Kitsune/Pods-Kanji Kitsune-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4ECA10F92679BD160034E0CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E867D35267A955200803068 /* Kana.swift in Sources */,
+				4ECA11052679BD160034E0CA /* JLPTSelectionViewController.swift in Sources */,
+				4E2C6DB826B9D6A100A28831 /* DictionaryEntryTableViewCell.swift in Sources */,
+				4E2C6DB226B35B4A00A28831 /* KanjiDetailsViewController.swift in Sources */,
+				4ECB1433268EE36A00538D28 /* Entry.swift in Sources */,
+				4EF906CF26AA7A450009B98C /* Word+CoreDataProperties.swift in Sources */,
+				4EF906BD26A7FC520009B98C /* Kanji+CoreDataProperties.swift in Sources */,
+				4EF906C426AA1F330009B98C /* Hint.swift in Sources */,
+				4E2C6DC026BB9AFB00A28831 /* KanjiResourcesCodable.swift in Sources */,
+				4EF906E226B122CD0009B98C /* KanjiQuizViewController.swift in Sources */,
+				4ECA11012679BD160034E0CA /* AppDelegate.swift in Sources */,
+				4EF906DE26B0CA7C0009B98C /* JLPTLevelTableViewCell.swift in Sources */,
+				4EF906A326A7D2D50009B98C /* KanjiQuizzer.swift in Sources */,
+				4EF906D426AA7A450009B98C /* Meaning+CoreDataClass.swift in Sources */,
+				4EF906BE26A7FC520009B98C /* Kanji+CoreDataClass.swift in Sources */,
+				4EF906D326AA7A450009B98C /* KanjiResources+CoreDataProperties.swift in Sources */,
+				4EF906E026B0DD4A0009B98C /* JLPTLevelsTableView.swift in Sources */,
+				4EF906E426B1CD7B0009B98C /* SampleWordsViewController.swift in Sources */,
+				4ECB14352690CCED00538D28 /* WordExtractor.swift in Sources */,
+				4ECA11032679BD160034E0CA /* SceneDelegate.swift in Sources */,
+				4EF906A626A7EEBC0009B98C /* Kanji Kitsune.xcdatamodeld in Sources */,
+				4EF906D026AA7A450009B98C /* KanaReading+CoreDataClass.swift in Sources */,
+				4EF906D226AA7A450009B98C /* Meaning+CoreDataProperties.swift in Sources */,
+				4EF906DA26ACD14B0009B98C /* CoreDataCRUD.swift in Sources */,
+				4E2C6DB026B2893C00A28831 /* KanjiQuizCompletionViewController.swift in Sources */,
+				4EF906D126AA7A450009B98C /* KanjiResources+CoreDataClass.swift in Sources */,
+				4EF906D626AA7A450009B98C /* Word+CoreDataClass.swift in Sources */,
+				4E2C6DAE26B2240F00A28831 /* Canvas.swift in Sources */,
+				4EF906C626AA220F0009B98C /* Transformers.swift in Sources */,
+				4E4D8BA526956FBA0014178A /* JMDictReader.swift in Sources */,
+				4EF906D526AA7A450009B98C /* KanaReading+CoreDataProperties.swift in Sources */,
+				4E2C6DBB26BB383800A28831 /* KanjiCodable.swift in Sources */,
+				4E2C6DC426BE0FA400A28831 /* ColorPalette.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4ECA110B2679BD1A0034E0CA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4ECA110C2679BD1A0034E0CA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4ECA110F2679BD1A0034E0CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4ECA11102679BD1A0034E0CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4ECA11122679BD1A0034E0CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2743AA2D7CB601644EB40AD /* Pods-Kanji Kitsune.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B2LKGG24NP;
+				INFOPLIST_FILE = "Kanji Kitsune/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "nicholasdalba.Kanji-Kitsune";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4ECA11132679BD1A0034E0CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 202DA595FEFE07885CC6F6FF /* Pods-Kanji Kitsune.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B2LKGG24NP;
+				INFOPLIST_FILE = "Kanji Kitsune/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "nicholasdalba.Kanji-Kitsune";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4ECA10F82679BD160034E0CA /* Build configuration list for PBXProject "Kanji Kitsune" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4ECA110F2679BD1A0034E0CA /* Debug */,
+				4ECA11102679BD1A0034E0CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4ECA11112679BD1A0034E0CA /* Build configuration list for PBXNativeTarget "Kanji Kitsune" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4ECA11122679BD1A0034E0CA /* Debug */,
+				4ECA11132679BD1A0034E0CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4EF906A426A7EEBC0009B98C /* Kanji Kitsune.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4EF906A526A7EEBC0009B98C /* Kanji Kitsune.xcdatamodel */,
+			);
+			currentVersion = 4EF906A526A7EEBC0009B98C /* Kanji Kitsune.xcdatamodel */;
+			path = "Kanji Kitsune.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 4ECA10F52679BD160034E0CA /* Project object */;
+}
