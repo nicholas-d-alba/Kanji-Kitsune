@@ -16,7 +16,9 @@ class JLPTSelectionViewController: UIViewController, UITableViewDataSource, UITa
         
         super.viewDidLoad()
         setUpUI()
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "LS", style: .plain, target: nil, action: nil)
+        let barButtonItem = UIBarButtonItem(title: "LS", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = barButtonItem
+        navigationItem.title = "Level Selection"
         
         let start = DispatchTime.now()
         
@@ -26,7 +28,7 @@ class JLPTSelectionViewController: UIViewController, UITableViewDataSource, UITa
         print("Data has been set up.")
 
         print(dataManager.loadKanji().count)
-        print(dataManager.loadKanjiResources().count)
+        // print(dataManager.loadKanjiResources().count)
 
         let end = DispatchTime.now()
         let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
@@ -34,34 +36,13 @@ class JLPTSelectionViewController: UIViewController, UITableViewDataSource, UITa
         print(timeInterval)
     
     }
-
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
     
     // MARK: UI Set-Up
     
     private func setUpUI() {
         view.backgroundColor = ColorPalette.backgroundColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
-        setUpTitleLabel()
         setUpTableView()
         setUpStartQuizButton()
-    }
-    
-    private func setUpTitleLabel() {
-        view.addSubview(titleLabel)
-        titleLabel.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
     }
     
     private func setUpTableView() {
@@ -108,7 +89,7 @@ class JLPTSelectionViewController: UIViewController, UITableViewDataSource, UITa
         }
         
         let start = DispatchTime.now()
-        let quiz = KanjiQuiz(withContext: context, ofLength: 10, jlptLevels: levels)
+        let quiz = KanjiQuiz(withContext: context, ofLength: quizLength, jlptLevels: levels)
         let end = DispatchTime.now()
         let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
         let timeInterval = Double(nanoTime) / 1_000_000_000
@@ -152,15 +133,6 @@ class JLPTSelectionViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     // MARK: Properties
-    
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
-        label.textAlignment = .center
-        label.text = "Level Selection"
-        return label
-    }()
         
     private let jlptLevelsTableView: JLPTLevelsTableView = {
         let tableView = JLPTLevelsTableView()
@@ -179,8 +151,10 @@ class JLPTSelectionViewController: UIViewController, UITableViewDataSource, UITa
     }()
     
     private var jlptLevels: [String]? = ["N5", "N4", "N3", "N2", "N1"]
-    private var includedLevels = [true, false, false, false, false]
+    private var includedLevels = [false, false, false, false, false]
     private let cellReuseIdentifier = "cellReuseIdentifier"
     
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 }
+
+private let quizLength = 10

@@ -15,13 +15,12 @@ class KanjiQuizViewController: UIViewController {
         self.kanjiQuiz = kanjiQuiz
         super.init(nibName: nil, bundle: nil)
         navigationItem.title = "Kanji Quiz \(kanjiQuiz.index+1)/\(kanjiQuiz.quizLength)"
-        loadInformation(forKanji: kanjiQuiz.currentKanji)
+        loadInformation(forKanji: kanjiQuiz.currentKanji, hints: kanjiQuiz.currentHints)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     // MARK: ViewController Lifecycle
     
@@ -34,42 +33,71 @@ class KanjiQuizViewController: UIViewController {
     
     private func setUpUI() {
         view.backgroundColor = ColorPalette.backgroundColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
-        setUpKanjiInformationLabel()
-        setUpPresentSampleWordsButton()
         
         setUpDrawingSubmissionButton()
         setUpCanvas()
         setUpCanvasEditingButtons()
+        setUpKanjiDetailsButton()
+        setUpKanjiInformationContainer()
         setUpMemoryIndicatorButtons()
         
-        rememberedKanjiButton.isHidden = true
-        forgotKanjiButton.isHidden = true
+        presentRelevantViews(isQuizzing: true)
     }
     
-    private func setUpKanjiInformationLabel() {
-        view.addSubview(kanjiInformationLabel)
-        kanjiInformationLabel.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
-        kanjiInformationLabel.backgroundColor = ColorPalette.contentBackgroundColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
-        kanjiInformationLabel.layer.borderColor = ColorPalette.borderColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle).cgColor
-        
+    private func setUpKanjiInformationContainer() {
+        kanjiInformationScrollView.addSubview(kanjiInformationLabel)
+        kanjiInformationScrollView.addSubview(kanjiHintsLabel)
         NSLayoutConstraint.activate([
-            kanjiInformationLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            kanjiInformationLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
-            kanjiInformationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
-            kanjiInformationLabel.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.20)
+            kanjiInformationLabel.topAnchor.constraint(equalTo: kanjiInformationScrollView.topAnchor, constant: 8),
+            kanjiInformationLabel.leadingAnchor.constraint(equalTo: kanjiInformationScrollView.leadingAnchor, constant: 8),
+            kanjiInformationLabel.bottomAnchor.constraint(equalTo: kanjiHintsLabel.topAnchor),
+            kanjiInformationLabel.trailingAnchor.constraint(equalTo: kanjiInformationScrollView.trailingAnchor, constant: -8),
+            kanjiInformationLabel.widthAnchor.constraint(equalTo: kanjiInformationScrollView.widthAnchor, constant: -16),
+            kanjiHintsLabel.leadingAnchor.constraint(equalTo: kanjiInformationScrollView.leadingAnchor, constant: 8),
+            kanjiHintsLabel.bottomAnchor.constraint(equalTo: kanjiInformationScrollView.bottomAnchor),
+            kanjiHintsLabel.trailingAnchor.constraint(equalTo: kanjiInformationScrollView.trailingAnchor, constant: -8),
+            kanjiHintsLabel.widthAnchor.constraint(equalTo: kanjiInformationScrollView.widthAnchor, constant: -16)
         ])
+        
+        kanjiInformationContainer.addSubview(kanjiInformationScrollView)
+        NSLayoutConstraint.activate([
+            kanjiInformationScrollView.topAnchor.constraint(equalTo: kanjiInformationContainer.topAnchor),
+            kanjiInformationScrollView.leadingAnchor.constraint(equalTo: kanjiInformationContainer.leadingAnchor),
+            kanjiInformationScrollView.bottomAnchor.constraint(equalTo: kanjiInformationContainer.bottomAnchor),
+            kanjiInformationScrollView.trailingAnchor.constraint(equalTo: kanjiInformationContainer.trailingAnchor)
+        ])
+        
+        kanjiInformationContainer.addSubview(kanjiNameLabel)
+        NSLayoutConstraint.activate([
+            kanjiNameLabel.centerXAnchor.constraint(equalTo: kanjiInformationContainer.centerXAnchor),
+            kanjiNameLabel.centerYAnchor.constraint(equalTo: kanjiInformationContainer.centerYAnchor)
+        ])
+        
+        view.addSubview(kanjiInformationContainer)
+        NSLayoutConstraint.activate([
+            kanjiInformationContainer.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            kanjiInformationContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            kanjiInformationContainer.bottomAnchor.constraint(equalTo: kanjiDetailsButton.topAnchor, constant: -8),
+            kanjiInformationContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8)
+        ])
+        
+        kanjiInformationContainer.backgroundColor = ColorPalette.contentBackgroundColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        kanjiInformationContainer.layer.borderColor = ColorPalette.borderColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle).cgColor
+        setColors(forLabel: kanjiInformationLabel)
+        setColors(forLabel: kanjiHintsLabel)
+        setColors(forLabel: kanjiNameLabel)
     }
     
-    private func setUpPresentSampleWordsButton() {
-        view.addSubview(sampleWordsButton)
+    private func setUpKanjiDetailsButton() {
+        view.addSubview(kanjiDetailsButton)
         NSLayoutConstraint.activate([
-            sampleWordsButton.topAnchor.constraint(equalTo: kanjiInformationLabel.bottomAnchor, constant: 8),
-            sampleWordsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            kanjiDetailsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            kanjiDetailsButton.bottomAnchor.constraint(equalTo: undoStrokeButton.topAnchor, constant: -8)
         ])
         
-        sampleWordsButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-        setColorsAndRounding(forButtonWithLabel: sampleWordsButton)
-        sampleWordsButton.addTarget(self, action: #selector(presentSampleWords), for: .touchUpInside)
+        kanjiDetailsButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        setColorsAndRounding(forButtonWithLabel: kanjiDetailsButton)
+        kanjiDetailsButton.addTarget(self, action: #selector(presentKanjiDetails), for: .touchUpInside)
     }
     
     private func setUpDrawingSubmissionButton() {
@@ -144,41 +172,31 @@ class KanjiQuizViewController: UIViewController {
         forgotKanjiButton.addTarget(self, action: #selector(didNotRememberKanji), for: .touchUpInside)
     }
     
-    private func loadInformation(forKanji kanji: Kanji) {
+    private func loadInformation(forKanji kanji: Kanji, hints: [Hint]?) {
         kanjiInformationLabel.text = ""
-        kanjiInformationLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         if let meanings = kanji.meanings {
             kanjiInformationLabel.text! += "\(meanings.joined(separator: ", "))\n"
         }
-        if let on = kanji.onReadings {
+        if let on = kanji.onReadings, !kanji.onReadings!.isEmpty {
             kanjiInformationLabel.text! += "\(on.joined(separator: ", "))\n"
         }
-        if let kun = kanji.kunReadings {
-            kanjiInformationLabel.text! += kun.joined(separator: ", ")
+        if let kun = kanji.kunReadings, !kanji.kunReadings!.isEmpty {
+            kanjiInformationLabel.text! += "\(kun.joined(separator: ", "))\n"
         }
-    }
-    
-    private func switchSampleWordsButtonWithKanjiDetailsButton() {
-        sampleWordsButton.removeFromSuperview()
-        view.addSubview(kanjiDetailsButton)
-        NSLayoutConstraint.activate([
-            kanjiDetailsButton.topAnchor.constraint(equalTo: kanjiInformationLabel.bottomAnchor, constant: 8),
-            kanjiDetailsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
         
-        kanjiDetailsButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-        setColorsAndRounding(forButtonWithLabel: kanjiDetailsButton)
-        kanjiDetailsButton.addTarget(self, action: #selector(presentKanjiDetails), for: .touchUpInside)
-    }
-    
-    private func switchKanjiDetailsButtonWithSampleWordsButton() {
-        kanjiDetailsButton.removeFromSuperview()
-        view.addSubview(sampleWordsButton)
-        NSLayoutConstraint.activate([
-            sampleWordsButton.topAnchor.constraint(equalTo: kanjiInformationLabel.bottomAnchor, constant: 8),
-            sampleWordsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-        sampleWordsButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        guard let hints = hints else {
+            return
+        }
+        var attributedHints = NSAttributedString()
+        for (i, hint) in hints.enumerated() {
+            let readings = "\(i+1). " + hint.readings.joined(separator: ", ") + ": "
+            let meanings = hint.meanings.joined(separator: ", ") + "\n"
+            let attributedPrefixString = NSAttributedString(string: readings, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .bold)])
+            let attributedSuffixString = NSAttributedString(string: meanings, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .regular)])
+            let attributedString = attributedPrefixString + attributedSuffixString
+            attributedHints = attributedHints + attributedString
+        }
+        kanjiHintsLabel.attributedText = attributedHints
     }
     
     private func setColorsAndRounding(forButtonWithLabel button: UIButton) {
@@ -198,13 +216,11 @@ class KanjiQuizViewController: UIViewController {
         }
     }
     
-    // MARK: Interactivity
-    
-    @objc func presentSampleWords() {
-        guard let hints = kanjiQuiz.currentHints else {return}
-        let sampleWordsViewController = SampleWordsViewController(withHints: hints)
-        present(sampleWordsViewController, animated: true, completion: nil)
+    private func setColors(forLabel label: UILabel) {
+        label.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
     }
+    
+    // MARK: Interactivity
     
     @objc func presentKanjiDetails() {
         let kanjiDetailsViewController = KanjiDetailsViewController(withKanji: kanjiQuiz.currentKanji, words: kanjiQuiz.currentWords)
@@ -221,18 +237,12 @@ class KanjiQuizViewController: UIViewController {
     
     @objc func submitDrawing() {
         if let name = kanjiQuiz.currentKanji.name {
-            kanjiInformationLabel.text = name
+            kanjiNameLabel.text = name
         }
-        kanjiInformationLabel.font = UIFont.systemFont(ofSize: 80, weight: .bold)
-        
-        submitDrawingButton.isHidden = true
-        rememberedKanjiButton.isHidden = false
-        forgotKanjiButton.isHidden = false
-        clearCanvasButton.isHidden = true
-        undoStrokeButton.isHidden = true
-        
+        kanjiInformationLabel.text = ""
+        kanjiHintsLabel.text = ""
         canvas.isUserInteractionEnabled = false
-        switchSampleWordsButtonWithKanjiDetailsButton()
+        presentRelevantViews(isQuizzing: false)
     }
     
     @objc func didRememberKanji() {
@@ -246,14 +256,8 @@ class KanjiQuizViewController: UIViewController {
     }
     
     private func memoryIndicatorButtonPressed() {
-        submitDrawingButton.isHidden = false
-        rememberedKanjiButton.isHidden = true
-        forgotKanjiButton.isHidden = true
-        clearCanvasButton.isHidden = false
-        undoStrokeButton.isHidden = false
-        
         canvas.isUserInteractionEnabled = true
-        switchKanjiDetailsButtonWithSampleWordsButton()
+        presentRelevantViews(isQuizzing: true)
         
         if kanjiQuiz.isCompleted {
             let kanjiRemembered = kanjiQuiz.kanjiRemembered
@@ -263,31 +267,65 @@ class KanjiQuizViewController: UIViewController {
                 self.navigationController?.popViewController(animated: true)
             }
         } else {
-            loadInformation(forKanji: kanjiQuiz.currentKanji)
+            loadInformation(forKanji: kanjiQuiz.currentKanji, hints: kanjiQuiz.currentHints)
             navigationItem.title = "Kanji Quiz \(kanjiQuiz.index+1)/\(kanjiQuiz.quizLength)"
             clearCanvas()
         }
     }
     
+    private func presentRelevantViews(isQuizzing: Bool) {
+        kanjiInformationScrollView.isHidden = !isQuizzing
+        kanjiNameLabel.isHidden = isQuizzing
+        
+        clearCanvasButton.isHidden = !isQuizzing
+        kanjiDetailsButton.isHidden = isQuizzing
+        undoStrokeButton.isHidden = !isQuizzing
+        
+        rememberedKanjiButton.isHidden = isQuizzing
+        submitDrawingButton.isHidden = !isQuizzing
+        forgotKanjiButton.isHidden = isQuizzing
+    }
+    
     // MARK: Properties
+    
+    private var kanjiInformationContainer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.borderWidth = 2
+        return view
+    }()
+    
+    private var kanjiInformationScrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
     
     private var kanjiInformationLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.textAlignment = .center
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.layer.borderWidth = 2
         return label
     }()
     
-    private var sampleWordsButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.borderWidth = 2
-        let attributedTitle = NSAttributedString(string: "Show Sample Words", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .regular)])
-        button.setAttributedTitle(attributedTitle, for: .normal)
-        return button
+    private var kanjiHintsLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .natural
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        return label
+    }()
+    
+    private let kanjiNameLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 100, weight: .bold)
+        label.textAlignment = .center
+        return label
     }()
     
     private let kanjiDetailsButton: UIButton = {
