@@ -5,6 +5,7 @@
 //  Created by Nicholas Alba on 7/29/21.
 //
 
+import SVGKit
 import UIKit
 
 class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -31,7 +32,7 @@ class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITab
     // MARK: UI Set-Up
         
     private func setUpUI() {
-        view.backgroundColor = ColorPalette.backgroundColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        view.backgroundColor = backgroundColor
         setUpContainerView()
         setUpKanjiInformation()
         
@@ -42,6 +43,10 @@ class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITab
         setUpMasteryLabels()
         
         setUpTableView()
+        setUpKanjiStrokesImageView()
+        setUpButtons()
+        
+        sampleWordsButtonPressed()
     }
     
     private func setUpContainerView() {
@@ -57,7 +62,7 @@ class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITab
     private func setUpKanjiInformation() {
         
         containerView.addSubview(nameLabel)
-        nameLabel.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        nameLabel.textColor = textColor
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
             nameLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
@@ -65,7 +70,7 @@ class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITab
         ])
         
         containerView.addSubview(meaningsLabel)
-        meaningsLabel.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        meaningsLabel.textColor = textColor
         NSLayoutConstraint.activate([
             meaningsLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
             meaningsLabel.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: 8),
@@ -77,14 +82,14 @@ class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITab
     
     private func setUpOnReadingsLabels() {
         containerView.addSubview(onPrefixLabel)
-        onPrefixLabel.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        onPrefixLabel.textColor = textColor
         NSLayoutConstraint.activate([
             onPrefixLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
             onPrefixLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
         ])
         
         containerView.addSubview(onSuffixLabel)
-        onSuffixLabel.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        onSuffixLabel.textColor = textColor
         NSLayoutConstraint.activate([
             onSuffixLabel.topAnchor.constraint(equalTo: onPrefixLabel.topAnchor),
             onSuffixLabel.leadingAnchor.constraint(equalTo: onPrefixLabel.trailingAnchor),
@@ -95,14 +100,14 @@ class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITab
     
     private func setUpKunReadingsLabels() {
         containerView.addSubview(kunPrefixLabel)
-        kunPrefixLabel.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        kunPrefixLabel.textColor = textColor
         NSLayoutConstraint.activate([
             kunPrefixLabel.topAnchor.constraint(equalTo: onSuffixLabel.bottomAnchor),
             kunPrefixLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
         ])
         
         containerView.addSubview(kunSuffixLabel)
-        kunSuffixLabel.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        kunSuffixLabel.textColor = textColor
         NSLayoutConstraint.activate([
             kunSuffixLabel.topAnchor.constraint(equalTo: onSuffixLabel.bottomAnchor),
             kunSuffixLabel.leadingAnchor.constraint(equalTo: kunPrefixLabel.trailingAnchor),
@@ -113,7 +118,7 @@ class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITab
     
     private func setUpJLPTLabels() {
         containerView.addSubview(jlptPrefixLabel)
-        jlptPrefixLabel.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        jlptPrefixLabel.textColor = textColor
         NSLayoutConstraint.activate([
             jlptPrefixLabel.topAnchor.constraint(equalTo: kunSuffixLabel.bottomAnchor),
             jlptPrefixLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
@@ -121,7 +126,7 @@ class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITab
         ])
         
         containerView.addSubview(jlptSuffixLabel)
-        jlptSuffixLabel.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        jlptSuffixLabel.textColor = textColor
         NSLayoutConstraint.activate([
             jlptSuffixLabel.topAnchor.constraint(equalTo: jlptPrefixLabel.topAnchor),
             jlptSuffixLabel.leadingAnchor.constraint(equalTo: jlptPrefixLabel.trailingAnchor),
@@ -132,14 +137,14 @@ class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITab
     
     private func setUpStrokesLabels() {
         containerView.addSubview(strokesPrefixLabel)
-        strokesPrefixLabel.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        strokesPrefixLabel.textColor = textColor
         NSLayoutConstraint.activate([
             strokesPrefixLabel.topAnchor.constraint(equalTo: jlptSuffixLabel.bottomAnchor),
             strokesPrefixLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor)
         ])
         
         containerView.addSubview(strokesSuffixLabel)
-        strokesSuffixLabel.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        strokesSuffixLabel.textColor = textColor
         NSLayoutConstraint.activate([
             strokesSuffixLabel.topAnchor.constraint(equalTo: strokesPrefixLabel.topAnchor),
             strokesSuffixLabel.leadingAnchor.constraint(equalTo: strokesPrefixLabel.trailingAnchor),
@@ -150,7 +155,7 @@ class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITab
     
     private func setUpMasteryLabels() {
         containerView.addSubview(masteryPrefixLabel)
-        masteryPrefixLabel.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        masteryPrefixLabel.textColor = textColor
         NSLayoutConstraint.activate([
             masteryPrefixLabel.topAnchor.constraint(equalTo: strokesPrefixLabel.bottomAnchor),
             masteryPrefixLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
@@ -162,7 +167,7 @@ class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITab
         ])
         
         containerView.addSubview(masterySuffixLabel)
-        masterySuffixLabel.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        masterySuffixLabel.textColor = textColor
         NSLayoutConstraint.activate([
             masterySuffixLabel.topAnchor.constraint(equalTo: masteryPrefixLabel.topAnchor),
             masterySuffixLabel.leadingAnchor.constraint(equalTo: masteryPrefixLabel.trailingAnchor),
@@ -178,7 +183,7 @@ class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITab
         wordsTableView.dataSource = self
         wordsTableView.delegate = self
         wordsTableView.register(DictionaryEntryTableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
-        wordsTableView.layer.borderColor = ColorPalette.borderColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle).cgColor
+        wordsTableView.layer.borderColor = borderColor.cgColor
         wordsTableView.rowHeight = UITableView.automaticDimension
         wordsTableView.estimatedRowHeight = 88
         
@@ -190,7 +195,35 @@ class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITab
         ])
     }
     
+    private func setUpKanjiStrokesImageView() {
+        view.addSubview(kanjiStrokesImageView)
+        NSLayoutConstraint.activate([
+            kanjiStrokesImageView.centerYAnchor.constraint(equalTo: wordsTableView.centerYAnchor),
+            kanjiStrokesImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            kanjiStrokesImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            kanjiStrokesImageView.widthAnchor.constraint(equalTo: kanjiStrokesImageView.heightAnchor)
+        ])
+    }
     
+    private func setUpButtons() {
+        view.addSubview(showSampleWordsButton)
+        view.addSubview(showKanjiStrokesButton)
+        showSampleWordsButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        showKanjiStrokesButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        
+        NSLayoutConstraint.activate([
+            showSampleWordsButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            showSampleWordsButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            showKanjiStrokesButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            showKanjiStrokesButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
+        ])
+        
+        setColorsAndRounding(forButtonWithLabel: showSampleWordsButton)
+        setColorsAndRounding(forButtonWithLabel: showKanjiStrokesButton)
+        
+        showSampleWordsButton.addTarget(self, action: #selector(sampleWordsButtonPressed), for: .touchUpInside)
+        showKanjiStrokesButton.addTarget(self, action: #selector(strokeOrderButtonPressed), for: .touchUpInside)
+    }
     
     private func loadDetails(forKanji kanji: Kanji) {
         guard let name = kanji.name, let meanings = kanji.meanings else {
@@ -199,17 +232,45 @@ class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITab
         
         nameLabel.text = name
         meaningsLabel.text = meanings.joined(separator: ", ")
-        
         if let onReadings = kanji.onReadings, !onReadings.isEmpty {
             onSuffixLabel.text = onReadings.joined(separator: ", ")
         }
         if let kunReadings = kanji.kunReadings, !kunReadings.isEmpty {
             kunSuffixLabel.text = kunReadings.joined(separator: ", ")
         }
-        
         jlptSuffixLabel.text = "N\(kanji.jlpt)"
         strokesSuffixLabel.text = "\(kanji.strokes)"
         masterySuffixLabel.text = "\(kanji.mastery)"
+        
+        guard let image = SVGKImage(named: name).uiImage else {
+            return
+        }
+        kanjiStrokesImageView.image = image.withTintColor(textColor)
+        kanjiStrokesImageView.backgroundColor = backgroundColor
+    }
+    
+    private func setColorsAndRounding(forButtonWithLabel button: UIButton) {
+        button.backgroundColor = contentBackgroundColor
+        button.layer.borderColor = borderColor.cgColor
+        if let label = button.titleLabel {
+            label.textColor = textColor
+            button.layer.cornerRadius = label.frame.height / 2
+        }
+    }
+    
+    @objc func sampleWordsButtonPressed() {
+        presentRelevantViews(isViewingStrokeOrder: false)
+    }
+    
+    @objc func strokeOrderButtonPressed() {
+        presentRelevantViews(isViewingStrokeOrder: true)
+    }
+    
+    private func presentRelevantViews(isViewingStrokeOrder: Bool) {
+        showSampleWordsButton.isHidden = !isViewingStrokeOrder
+        showKanjiStrokesButton.isHidden = isViewingStrokeOrder
+        wordsTableView.isHidden = isViewingStrokeOrder
+        kanjiStrokesImageView.isHidden = !isViewingStrokeOrder
     }
     
     // MARK: TableView Methods
@@ -223,7 +284,7 @@ class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITab
             return UITableViewCell()
         }
         dictionaryEntryCell.loadDetails(forWord: words[indexPath.row])
-        dictionaryEntryCell.setColors(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        dictionaryEntryCell.setColors(forViewController: self)
         return dictionaryEntryCell
     }
 
@@ -345,13 +406,37 @@ class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITab
         return label
     }()
     
+    private let showKanjiStrokesButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        let attributedText = NSAttributedString(string: "Show Stroke Order", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .regular)])
+        button.setAttributedTitle(attributedText, for: .normal)
+        button.layer.borderWidth = 1.0
+        return button
+    }()
+    
+    private let showSampleWordsButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        let attributedText = NSAttributedString(string: "Show Sample Words", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .regular)])
+        button.setAttributedTitle(attributedText, for: .normal)
+        button.layer.borderWidth = 1.0
+        return button
+    }()
+    
     private let wordsTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.layer.borderWidth = 2.0
         return tableView
     }()
-
+    
+    private let kanjiStrokesImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     private var wordList:[Word]? = []
     
     private let cellReuseIdentifier = "cellReuseIdentifier"

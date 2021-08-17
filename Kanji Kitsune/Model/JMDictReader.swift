@@ -32,7 +32,7 @@ func readFile(named filename: String, entries: inout [Entry]) {
     do {
         let contents = try String(contentsOfFile: path)
         guard let xml = try? XML.parse(contents) else {
-            print("Couldn't parse string contents into xml.")
+            print("Couldn't parse string contents of \(filename) into xml.")
             return
         }
         for entryXML in xml["JMdict"]["entry"] {
@@ -41,7 +41,7 @@ func readFile(named filename: String, entries: inout [Entry]) {
             }
         }
     } catch {
-        print("Contents could not be loaded.")
+        print("Contents of \(filename) could not be loaded.")
     }
 }
 

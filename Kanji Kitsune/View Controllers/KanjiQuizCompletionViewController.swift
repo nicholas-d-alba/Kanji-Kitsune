@@ -30,14 +30,14 @@ class KanjiQuizCompletionViewController: UIViewController {
     // MARK: UI Set-Up
     
     private func setUpUI() {
-        view.backgroundColor = ColorPalette.backgroundColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        view.backgroundColor = backgroundColor
         setUpTitleLabel()
         setUpResultsLabel()
     }
 
     private func setUpTitleLabel() {
         view.addSubview(titleLabel)
-        titleLabel.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        titleLabel.textColor = textColor
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
@@ -46,7 +46,7 @@ class KanjiQuizCompletionViewController: UIViewController {
     
     private func setUpResultsLabel() {
         view.addSubview(resultsLabel)
-        resultsLabel.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        resultsLabel.textColor = textColor
         NSLayoutConstraint.activate([
             resultsLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             resultsLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)

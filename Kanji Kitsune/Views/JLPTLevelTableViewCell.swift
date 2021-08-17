@@ -21,8 +21,11 @@ class JLPTLevelTableViewCell: UITableViewCell {
     
     // MARK: UI
     
-    func load(withText text: String) {
+    func load(withText text: String, forViewController viewController: UIViewController) {
         label.text = text
+        contentView.backgroundColor = viewController.contentBackgroundColor
+        label.textColor = viewController.textColor
+        layer.borderColor = viewController.borderColor.cgColor
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -38,10 +41,6 @@ class JLPTLevelTableViewCell: UITableViewCell {
             label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
         ])
         
-        contentView.backgroundColor = ColorPalette.contentBackgroundColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
-        label.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
-    
-        layer.borderColor = ColorPalette.borderColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle).cgColor
         layer.borderWidth = 0.5
     }
     

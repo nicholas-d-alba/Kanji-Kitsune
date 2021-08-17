@@ -28,7 +28,7 @@ class PersistentDataManager {
         }
     }
     
-    private func setUpKanjiIfNeeded() {
+    func setUpKanjiIfNeeded() {
         guard let kanjiCodables = deserializeKanjiFromJSON() else {
             print("Couldn't deserialize all Kanji from JSON file.")
             return
@@ -199,6 +199,48 @@ class PersistentDataManager {
         }
     }
     
+    // MARK: Core Data Set-Up with Progress Indicator
+    
+//    func setUpCoreDataIfNeeded(completion: (ProgressIndicator) -> Void) {
+//        if !UserDefaults.standard.bool(forKey: "Saved") {
+//            setUpKanjiIfNeeded()
+//            print("Kanji have been set up.")
+//            setUpResourcesIfNeeded(completion: completion)
+//            print("Resources have been set up.")
+//            UserDefaults.standard.set(true, forKey: "Saved")
+//        }
+//    }
+//    
+//    private func setUpResourcesIfNeeded(completion: (ProgressIndicator) -> Void) {
+//        guard let resourcesCodables = deserializeKanjiResourcesFromJSON() else {
+//            print("Couldn't deserialize all KanjiResources from JSON file.")
+//            return
+//        }
+//        createAndSaveResources(from: resourcesCodables, completion: completion)
+//    }
+   
+    func createAndSaveResource(from codable: KanjiResourcesCodable)  {
+        _ = KanjiResources.instantiate(from: codable, withContext: context)
+        do {
+            try context.save()
+        } catch {
+            print("Couldn't save all KanjiResources instances.")
+        }
+    }
+    
+    func createResource(from codable: KanjiResourcesCodable) {
+        _ = KanjiResources.instantiate(from: codable, withContext: context)
+    }
+    
+    func save() {
+        do {
+            try context.save()
+        } catch {
+            print("Couldn't save.")
+        }
+    }
+    
+    
     // MARK: Core Data Initial Set-Up
     
     private func populateCoreData() {
@@ -349,7 +391,7 @@ class PersistentDataManager {
     
     // MARK: Properties
     
-    private let context: NSManagedObjectContext
+    let context: NSManagedObjectContext
     private let defaultMastery = 4
 }
 

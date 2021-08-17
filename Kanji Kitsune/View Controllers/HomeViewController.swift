@@ -14,7 +14,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
-        setUpMenu()
         setUpNavigationBar()
     }
     
@@ -33,7 +32,7 @@ class HomeViewController: UIViewController {
     private func setUpUI() {
         setUpTitle()
         setUpMenu()
-        view.backgroundColor = ColorPalette.backgroundColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        view.backgroundColor = backgroundColor
     }
     
     private func setUpTitle() {
@@ -42,7 +41,7 @@ class HomeViewController: UIViewController {
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-        titleLabel.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        titleLabel.textColor = textColor
     }
     
     private func setUpMenu() {
@@ -50,7 +49,7 @@ class HomeViewController: UIViewController {
         stackView.addArrangedSubview(quizButton)
         stackView.addArrangedSubview(appInformationButton)
         
-        kitsuneLabel.shadowColor = ColorPalette.contentBackgroundColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        kitsuneLabel.shadowColor = contentBackgroundColor
         kitsuneLabel.shadowOffset = CGSize(width: 5, height: 10)
         quizButton.addTarget(self, action: #selector(quizButtonPressed), for: .touchUpInside)
         appInformationButton.addTarget(self, action: #selector(appInformationButtonPressed), for: .touchUpInside)
@@ -69,20 +68,20 @@ class HomeViewController: UIViewController {
     private func setUpNavigationBar() {
         let barButtonItem = UIBarButtonItem(title: "Home", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = barButtonItem
-        UINavigationBar.appearance().tintColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)]
+        UINavigationBar.appearance().tintColor = textColor
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: textColor]
     }
     
     private func setAppearance(forLabel label: UILabel) {
-        label.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        label.textColor = textColor
     }
     
     private func setAppearance(forButtonWithLabel button: UIButton) {
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-        button.layer.borderColor = ColorPalette.borderColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle).cgColor
-        button.backgroundColor = ColorPalette.contentBackgroundColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        button.layer.borderColor = borderColor.cgColor
+        button.backgroundColor = contentBackgroundColor
         if let label = button.titleLabel {
-            label.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+            label.textColor = textColor
             button.layer.cornerRadius = label.frame.height / 2
         }
     }
@@ -144,5 +143,4 @@ class HomeViewController: UIViewController {
         button.layer.borderWidth = 2
         return button
     }()
-    
 }

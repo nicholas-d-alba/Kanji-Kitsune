@@ -19,28 +19,13 @@ class JLPTSelectionViewController: UIViewController, UITableViewDataSource, UITa
         let barButtonItem = UIBarButtonItem(title: "LS", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = barButtonItem
         navigationItem.title = "Level Selection"
-        
-        let start = DispatchTime.now()
-        
-        let dataManager = PersistentDataManager(context: context)
-        dataManager.setUpCoreDataIfNeeded()
-
-        print("Data has been set up.")
-
-        print(dataManager.loadKanji().count)
-        // print(dataManager.loadKanjiResources().count)
-
-        let end = DispatchTime.now()
-        let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
-        let timeInterval = Double(nanoTime) / 1_000_000_000
-        print(timeInterval)
     
     }
     
     // MARK: UI Set-Up
     
     private func setUpUI() {
-        view.backgroundColor = ColorPalette.backgroundColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        view.backgroundColor = backgroundColor
         setUpTableView()
         setUpStartQuizButton()
     }
@@ -56,13 +41,14 @@ class JLPTSelectionViewController: UIViewController, UITableViewDataSource, UITa
             jlptLevelsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
             jlptLevelsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8)
         ])
-        jlptLevelsTableView.layer.borderColor = ColorPalette.borderColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle).cgColor
+        jlptLevelsTableView.layer.borderColor = borderColor.cgColor
+        jlptLevelsTableView.rowHeight = 44
     }
     
     private func setUpStartQuizButton() {
         view.addSubview(startQuizButton)
-        startQuizButton.titleLabel?.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
-        startQuizButton.backgroundColor = ColorPalette.contentBackgroundColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        startQuizButton.titleLabel?.textColor = textColor
+        startQuizButton.backgroundColor = contentBackgroundColor
         
         NSLayoutConstraint.activate([
             startQuizButton.topAnchor.constraint(equalTo: jlptLevelsTableView.bottomAnchor, constant: 10),
@@ -71,7 +57,7 @@ class JLPTSelectionViewController: UIViewController, UITableViewDataSource, UITa
         startQuizButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         startQuizButton.layer.cornerRadius = startQuizButton.titleLabel!.frame.height / 2
         startQuizButton.addTarget(self, action: #selector(startQuiz), for: .touchUpInside)
-        startQuizButton.layer.borderColor = ColorPalette.borderColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle).cgColor
+        startQuizButton.layer.borderColor = borderColor.cgColor
     }
     
     // MARK: Interactivity
@@ -112,9 +98,9 @@ class JLPTSelectionViewController: UIViewController, UITableViewDataSource, UITa
         guard let levels = jlptLevels, let jlptLevelCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as? JLPTLevelTableViewCell else {
             return UITableViewCell()
         }
-        jlptLevelCell.load(withText: levels[indexPath.row])
-        jlptLevelCell.tintColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
-        jlptLevelCell.backgroundColor = ColorPalette.contentBackgroundColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        jlptLevelCell.load(withText: levels[indexPath.row], forViewController: self)
+        jlptLevelCell.tintColor = textColor
+        jlptLevelCell.backgroundColor = contentBackgroundColor
         return jlptLevelCell
     }
     

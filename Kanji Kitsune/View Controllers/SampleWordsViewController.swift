@@ -39,14 +39,14 @@ class SampleWordsViewController: UIViewController {
     // MARK: UI Set-Up
     
     private func setUpUI() {
-        view.backgroundColor = ColorPalette.backgroundColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        view.backgroundColor = backgroundColor
         setUpTitleLabel()
         setUpScrollView()
     }
     
     private func setUpTitleLabel() {
         view.addSubview(titleLabel)
-        titleLabel.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        titleLabel.textColor = textColor
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
@@ -66,7 +66,7 @@ class SampleWordsViewController: UIViewController {
         ])
         
         scrollView.addSubview(sampleWordsLabel)
-        sampleWordsLabel.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        sampleWordsLabel.textColor = textColor
         NSLayoutConstraint.activate([
             sampleWordsLabel.topAnchor.constraint(equalTo: scrollView.topAnchor),
             sampleWordsLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),

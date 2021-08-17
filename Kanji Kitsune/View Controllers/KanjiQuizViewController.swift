@@ -32,7 +32,7 @@ class KanjiQuizViewController: UIViewController {
     // MARK: UI Set-Up
     
     private func setUpUI() {
-        view.backgroundColor = ColorPalette.backgroundColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        view.backgroundColor = backgroundColor
         
         setUpDrawingSubmissionButton()
         setUpCanvas()
@@ -81,8 +81,8 @@ class KanjiQuizViewController: UIViewController {
             kanjiInformationContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8)
         ])
         
-        kanjiInformationContainer.backgroundColor = ColorPalette.contentBackgroundColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
-        kanjiInformationContainer.layer.borderColor = ColorPalette.borderColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle).cgColor
+        kanjiInformationContainer.backgroundColor = contentBackgroundColor
+        kanjiInformationContainer.layer.borderColor = borderColor.cgColor
         setColors(forLabel: kanjiInformationLabel)
         setColors(forLabel: kanjiHintsLabel)
         setColors(forLabel: kanjiNameLabel)
@@ -113,18 +113,20 @@ class KanjiQuizViewController: UIViewController {
     }
     
     private func setUpCanvas() {
-        canvas = Canvas(withStrokeColor: ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle))
+        canvas = Canvas(withStrokeColor: textColor)
         canvas.translatesAutoresizingMaskIntoConstraints = false
         canvas.layer.borderWidth = 2
-        canvas.layer.borderColor = ColorPalette.borderColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle).cgColor
-        canvas.backgroundColor = ColorPalette.contentBackgroundColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        canvas.layer.borderColor = borderColor.cgColor
+        canvas.backgroundColor = contentBackgroundColor
         
         view.addSubview(canvas)
         NSLayoutConstraint.activate([
-            canvas.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            canvas.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: 8),
             canvas.bottomAnchor.constraint(equalTo: submitDrawingButton.topAnchor, constant: -8),
-            canvas.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
-            canvas.heightAnchor.constraint(equalTo: canvas.widthAnchor)
+            canvas.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -8),
+            canvas.heightAnchor.constraint(equalTo: canvas.widthAnchor),
+            canvas.heightAnchor.constraint(lessThanOrEqualTo: view.heightAnchor, multiplier: 0.50),
+            canvas.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
     }
     
@@ -200,24 +202,24 @@ class KanjiQuizViewController: UIViewController {
     }
     
     private func setColorsAndRounding(forButtonWithLabel button: UIButton) {
-        button.backgroundColor = ColorPalette.contentBackgroundColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
-        button.layer.borderColor = ColorPalette.borderColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle).cgColor
+        button.backgroundColor = contentBackgroundColor
+        button.layer.borderColor = borderColor.cgColor
         if let label = button.titleLabel {
-            label.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+            label.textColor = textColor
             button.layer.cornerRadius = label.frame.height / 2
         }
     }
     
     private func setColorsAndRounding(forButtonWithImage button: UIButton) {
-        button.backgroundColor = ColorPalette.contentBackgroundColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
-        button.layer.borderColor = ColorPalette.borderColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle).cgColor
+        button.backgroundColor = contentBackgroundColor
+        button.layer.borderColor = borderColor.cgColor
         if let imageView = button.imageView {
             button.layer.cornerRadius = imageView.frame.height / 2
         }
     }
     
     private func setColors(forLabel label: UILabel) {
-        label.textColor = ColorPalette.textColor(forUserInterfaceStyle: traitCollection.userInterfaceStyle)
+        label.textColor = textColor
     }
     
     // MARK: Interactivity
@@ -263,9 +265,7 @@ class KanjiQuizViewController: UIViewController {
             let kanjiRemembered = kanjiQuiz.kanjiRemembered
             let totalKanji = kanjiQuiz.quizLength
             let completionViewController = KanjiQuizCompletionViewController(kanjiRemembered: kanjiRemembered, totalKanji: totalKanji)
-            present(completionViewController, animated: true) {
-                self.navigationController?.popViewController(animated: true)
-            }
+            present(completionViewController, animated: true, completion: nil)
         } else {
             loadInformation(forKanji: kanjiQuiz.currentKanji, hints: kanjiQuiz.currentHints)
             navigationItem.title = "Kanji Quiz \(kanjiQuiz.index+1)/\(kanjiQuiz.quizLength)"

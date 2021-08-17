@@ -22,12 +22,12 @@ class DictionaryEntryTableViewCell: UITableViewCell {
     
     // MARK: UI Set-Up
     
-    func setColors(forUserInterfaceStyle userInterfaceStyle: UIUserInterfaceStyle) {
-        contentView.backgroundColor = ColorPalette.contentBackgroundColor(forUserInterfaceStyle: userInterfaceStyle)
+    func setColors(forViewController viewController: UIViewController) {
+        contentView.backgroundColor = viewController.contentBackgroundColor
         contentView.layer.borderWidth = 0.5
-        contentView.layer.borderColor = ColorPalette.borderColor(forUserInterfaceStyle: userInterfaceStyle).cgColor
-        spellingAndReadingsLabel.textColor = ColorPalette.textColor(forUserInterfaceStyle: userInterfaceStyle)
-        meaningsLabel.textColor = ColorPalette.textColor(forUserInterfaceStyle: userInterfaceStyle)
+        contentView.layer.borderColor = viewController.borderColor.cgColor
+        spellingAndReadingsLabel.textColor = viewController.textColor
+        meaningsLabel.textColor = viewController.textColor
     }
     
     private func setUpUI() {

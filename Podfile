@@ -8,4 +8,7 @@ target 'Kanji Kitsune' do
   # Pods for Kanji Kitsune
   pod "SwiftyXMLParser"
   
+  # Pod for SVGKit
+  pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '3.x'
+
 end
