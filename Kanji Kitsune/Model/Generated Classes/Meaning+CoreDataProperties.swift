@@ -20,6 +20,7 @@ extension Meaning {
     @NSManaged public var examples: [String]?
     @NSManaged public var fields: [String]?
     @NSManaged public var miscellaneousEntities: [String]?
+    @NSManaged public var order: Int64
     @NSManaged public var word: Word?
 
 }

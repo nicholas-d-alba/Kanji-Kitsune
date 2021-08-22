@@ -10,34 +10,18 @@ import UIKit
 extension UIViewController {
 
     var backgroundColor: UIColor {
-        if traitCollection.userInterfaceStyle == .dark {
-            return UIColor.black
-        } else {
-            return UIColor.white
-        }
+        return UIColor.black
     }
     
     var borderColor: UIColor {
-        if traitCollection.userInterfaceStyle == .dark {
-            return UIColor(named: "LavenderGamma") ?? UIColor.white
-        } else {
-            return UIColor.black
-        }
+        return UIColor(named: "LavenderGamma") ?? UIColor.white
     }
     
     var contentBackgroundColor: UIColor {
-        if traitCollection.userInterfaceStyle == .dark {
-            return UIColor(named: "LavenderAlpha") ?? .black
-        } else {
-            return UIColor.white
-        }
+        return UIColor(named: "LavenderAlpha") ?? .black
     }
     
     var textColor: UIColor {
-        if traitCollection.userInterfaceStyle == .dark {
-            return UIColor(named: "LavenderDelta") ?? UIColor.white
-        } else {
-            return UIColor.black
-        }
+        return UIColor(named: "LavenderDelta") ?? UIColor.white
     }
 }

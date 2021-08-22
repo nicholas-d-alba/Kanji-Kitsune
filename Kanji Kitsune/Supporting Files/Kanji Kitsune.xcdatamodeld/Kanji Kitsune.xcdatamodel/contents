@@ -24,6 +24,7 @@
         <attribute name="examples" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
         <attribute name="fields" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
         <attribute name="miscellaneousEntities" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="order" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="word" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Word" inverseName="meanings" inverseEntity="Word"/>
     </entity>
     <entity name="Word" representedClassName="Word" syncable="YES">
@@ -34,10 +35,10 @@
         <relationship name="meanings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Meaning" inverseName="word" inverseEntity="Meaning"/>
     </entity>
     <elements>
+        <element name="KanaReading" positionX="-9" positionY="81" width="128" height="74"/>
         <element name="Kanji" positionX="-63" positionY="-18" width="128" height="134"/>
         <element name="KanjiResources" positionX="-54" positionY="45" width="128" height="74"/>
+        <element name="Meaning" positionX="9" positionY="99" width="128" height="119"/>
         <element name="Word" positionX="-36" positionY="54" width="128" height="104"/>
-        <element name="KanaReading" positionX="-9" positionY="81" width="128" height="74"/>
-        <element name="Meaning" positionX="9" positionY="99" width="128" height="104"/>
     </elements>
 </model>

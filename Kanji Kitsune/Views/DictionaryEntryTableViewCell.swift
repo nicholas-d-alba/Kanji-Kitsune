@@ -78,7 +78,7 @@ class DictionaryEntryTableViewCell: UITableViewCell {
         spellingAndReadingsLabel.attributedText = attributedText
         
         var meaningsAttributedString = NSAttributedString(string: "")
-        for (i, meaning) in meanings.enumerated() {
+        for (i, meaning) in meanings.sorted(by: {$0.order < $1.order}).enumerated() {
             guard let unwrappedDefinitions = meaning.definitions else {
                 return
             }

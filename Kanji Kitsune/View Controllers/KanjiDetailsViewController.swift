@@ -240,7 +240,7 @@ class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITab
         }
         jlptSuffixLabel.text = "N\(kanji.jlpt)"
         strokesSuffixLabel.text = "\(kanji.strokes)"
-        masterySuffixLabel.text = "\(kanji.mastery)"
+        masterySuffixLabel.text = masteryString(for: Int(kanji.mastery))
         
         guard let image = SVGKImage(named: name).uiImage else {
             return
@@ -409,7 +409,7 @@ class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITab
     private let showKanjiStrokesButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        let attributedText = NSAttributedString(string: "Show Stroke Order", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .regular)])
+        let attributedText = NSAttributedString(string: "Show Strokes", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .regular)])
         button.setAttributedTitle(attributedText, for: .normal)
         button.layer.borderWidth = 1.0
         return button
@@ -418,7 +418,7 @@ class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITab
     private let showSampleWordsButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        let attributedText = NSAttributedString(string: "Show Sample Words", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .regular)])
+        let attributedText = NSAttributedString(string: "Show Words", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .regular)])
         button.setAttributedTitle(attributedText, for: .normal)
         button.layer.borderWidth = 1.0
         return button

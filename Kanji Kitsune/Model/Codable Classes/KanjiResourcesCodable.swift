@@ -34,6 +34,7 @@ struct MeaningCodable: Codable {
     var examples: [String]
     var fields: [String]
     var miscellaneousEntities: [String]
+    var order: Int
 }
 
 

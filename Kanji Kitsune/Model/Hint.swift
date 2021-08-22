@@ -64,5 +64,7 @@ func findHints(forKanji kanji: Kanji, entries: [Entry]) -> [Hint] {
             hints.append(Hint(readings: readings, meanings: meanings, priority: priority))
         }
     }
-    return hints
+    return Array(hints.prefix(hintLimit))
 }
+
+private let hintLimit = 10

@@ -11,9 +11,12 @@ class ContainerViewController: UIViewController, ChildRemover {
 
     // MARK: ViewController Lifecycle
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         if !UserDefaults.standard.bool(forKey: "Saved") {
             let installationViewController = InstallationViewController()
             installationViewController.delegate = self
@@ -21,23 +24,7 @@ class ContainerViewController: UIViewController, ChildRemover {
         } else {
             childViewController = HomeViewController()
         }
-        
         setUpChildViewController()
-        
-//        let start = DispatchTime.now()
-//
-//        let dataManager = PersistentDataManager(context: context)
-//        dataManager.setUpCoreDataIfNeeded()
-//
-//        print("Data has been set up.")
-//
-//        // print(dataManager.loadKanji().count)
-//        // print(dataManager.loadKanjiResources().count)
-//
-//        let end = DispatchTime.now()
-//        let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
-//        let timeInterval = Double(nanoTime) / 1_000_000_000
-//        print(timeInterval)
     }
 
     // MARK: UI Set-Up
@@ -75,8 +62,6 @@ class ContainerViewController: UIViewController, ChildRemover {
     private var childViewController = UIViewController()
     
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    
 }
 
 protocol ChildRemover {

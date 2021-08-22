@@ -119,12 +119,13 @@ class PersistentDataManager {
                 }
                 
                 var meanings:[MeaningCodable] = []
-                for senseElement in entry.senseElements {
+                for (i, senseElement) in entry.senseElements.enumerated() {
                     let definitions = senseElement.meanings
                     let examples = senseElement.examples ?? []
                     let fields = senseElement.fields ?? []
                     let miscellaneousEntities = senseElement.miscellaneousEntities ?? []
-                    let meaning = MeaningCodable(definitions: definitions, examples: examples, fields: fields, miscellaneousEntities: miscellaneousEntities)
+                    let order = i
+                    let meaning = MeaningCodable(definitions: definitions, examples: examples, fields: fields, miscellaneousEntities: miscellaneousEntities, order: order)
                     meanings.append(meaning)
                 }
                 

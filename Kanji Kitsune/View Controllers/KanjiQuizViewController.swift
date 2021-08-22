@@ -7,7 +7,7 @@
 
 import UIKit
 
-class KanjiQuizViewController: UIViewController {
+class KanjiQuizViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     // MARK: Initializers
     
@@ -222,6 +222,61 @@ class KanjiQuizViewController: UIViewController {
         label.textColor = textColor
     }
     
+    // MARK: Quiz Completion UI Set-Up
+    
+    func displayResults() {
+        removeQuizzingSubviews()
+        navigationItem.title = "Quiz Complete"
+        
+        view.addSubview(forgottenKanjiTableView)
+        forgottenKanjiTableView.dataSource = self
+        forgottenKanjiTableView.delegate = self
+        forgottenKanjiTableView.register(KanjiTableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        
+        NSLayoutConstraint.activate([
+            forgottenKanjiTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            forgottenKanjiTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
+            forgottenKanjiTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            forgottenKanjiTableView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.70)
+        ])
+        forgottenKanjiTableView.layer.borderWidth = 2.0
+        forgottenKanjiTableView.layer.borderColor = borderColor.cgColor
+        forgottenKanjiTableView.backgroundColor = backgroundColor
+        
+        view.addSubview(forgottenKanjiLabel)
+        forgottenKanjiLabel.textColor = textColor
+        NSLayoutConstraint.activate([
+            forgottenKanjiLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            forgottenKanjiLabel.bottomAnchor.constraint(equalTo: forgottenKanjiTableView.topAnchor, constant: -8),
+            forgottenKanjiLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8)
+        ])
+        
+        view.addSubview(scoreLabel)
+        scoreLabel.textColor = textColor
+        scoreLabel.text = "Score: \(kanjiQuiz.kanjiRemembered.count)/\(kanjiQuiz.quizLength)"
+        NSLayoutConstraint.activate([
+            scoreLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            scoreLabel.bottomAnchor.constraint(equalTo: forgottenKanjiLabel.topAnchor, constant: -16),
+            scoreLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8)
+        ])
+    }
+    
+    private func removeQuizzingSubviews() {
+        kanjiInformationContainer.removeFromSuperview()
+        kanjiInformationScrollView.removeFromSuperview()
+        kanjiInformationLabel.removeFromSuperview()
+        kanjiHintsLabel.removeFromSuperview()
+        kanjiNameLabel.removeFromSuperview()
+        kanjiDetailsButton.removeFromSuperview()
+        clearCanvasButton.removeFromSuperview()
+        undoStrokeButton.removeFromSuperview()
+        canvas.removeFromSuperview()
+        submitDrawingButton.removeFromSuperview()
+        rememberedKanjiButton.removeFromSuperview()
+        forgotKanjiButton.removeFromSuperview()
+        
+    }
+    
     // MARK: Interactivity
     
     @objc func presentKanjiDetails() {
@@ -262,10 +317,9 @@ class KanjiQuizViewController: UIViewController {
         presentRelevantViews(isQuizzing: true)
         
         if kanjiQuiz.isCompleted {
-            let kanjiRemembered = kanjiQuiz.kanjiRemembered
-            let totalKanji = kanjiQuiz.quizLength
-            let completionViewController = KanjiQuizCompletionViewController(kanjiRemembered: kanjiRemembered, totalKanji: totalKanji)
-            present(completionViewController, animated: true, completion: nil)
+            kanjiForgotten = kanjiQuiz.kanjiForgotten
+            wordsForForgottenKanji = kanjiQuiz.wordsForForgottenKanji
+            displayResults()
         } else {
             loadInformation(forKanji: kanjiQuiz.currentKanji, hints: kanjiQuiz.currentHints)
             navigationItem.title = "Kanji Quiz \(kanjiQuiz.index+1)/\(kanjiQuiz.quizLength)"
@@ -284,6 +338,28 @@ class KanjiQuizViewController: UIViewController {
         rememberedKanjiButton.isHidden = isQuizzing
         submitDrawingButton.isHidden = !isQuizzing
         forgotKanjiButton.isHidden = isQuizzing
+    }
+    
+    // MARK: TableView Methods
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return kanjiQuiz.kanjiForgotten.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let kanji = kanjiForgotten, let cell = forgottenKanjiTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as? KanjiTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.loadDetails(forKanji: kanji[indexPath.row])
+        cell.setColors(forViewController: self)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedKanji = kanjiQuiz.kanjiForgotten[indexPath.row]
+        let selectedWords = kanjiQuiz.wordsForForgottenKanji[indexPath.row]
+        let kanjiDetailsViewController = KanjiDetailsViewController(withKanji: selectedKanji, words: selectedWords)
+        present(kanjiDetailsViewController, animated: true, completion: nil)
     }
     
     // MARK: Properties
@@ -387,5 +463,31 @@ class KanjiQuizViewController: UIViewController {
         return button
     }()
     
+    private let scoreLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private let forgottenKanjiLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.textAlignment = .center
+        label.text = "Unknown Kanji"
+        return label
+    }()
+    
+    private let forgottenKanjiTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
     private var kanjiQuiz: KanjiQuiz
+    private let cellReuseIdentifier = "cellReuseIdentifier"
+    private var kanjiForgotten: [Kanji]?
+    private var wordsForForgottenKanji: [[Word]?] = []
 }

@@ -34,6 +34,8 @@ class InstallationViewController: UIViewController {
     // MARK: UI Set-Up
     
     private func setUpUI() {
+        view.backgroundColor = backgroundColor
+        
         pulsatingLayer = circularPathShapeLayer(withStrokeColor: .clear, fillColor: contentBackgroundColor)
         view.layer.addSublayer(pulsatingLayer)
         
@@ -45,6 +47,7 @@ class InstallationViewController: UIViewController {
         view.layer.addSublayer(progressLayer)
         
         view.addSubview(percentageLabel)
+        percentageLabel.textColor = textColor
         NSLayoutConstraint.activate([
             percentageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             percentageLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)

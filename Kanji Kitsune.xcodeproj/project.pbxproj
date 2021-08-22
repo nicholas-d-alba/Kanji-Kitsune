@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4E2C6DAE26B2240F00A28831 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2C6DAD26B2240F00A28831 /* Canvas.swift */; };
-		4E2C6DB026B2893C00A28831 /* KanjiQuizCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2C6DAF26B2893C00A28831 /* KanjiQuizCompletionViewController.swift */; };
 		4E2C6DB226B35B4A00A28831 /* KanjiDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2C6DB126B35B4A00A28831 /* KanjiDetailsViewController.swift */; };
 		4E2C6DB826B9D6A100A28831 /* DictionaryEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2C6DB726B9D6A100A28831 /* DictionaryEntryTableViewCell.swift */; };
 		4E2C6DBB26BB383800A28831 /* KanjiCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2C6DBA26BB383800A28831 /* KanjiCodable.swift */; };
@@ -22,6 +21,9 @@
 		4E5CF75226C9CFA600124416 /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5CF75126C9CFA600124416 /* ProgressIndicator.swift */; };
 		4E63DC96268E509C008A70E5 /* Dictionary Output File 1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4E63DC95268E509C008A70E5 /* Dictionary Output File 1.txt */; };
 		4E63DC9C268E560E008A70E5 /* Dictionary Metadata in Resources */ = {isa = PBXBuildFile; fileRef = 4E63DC9B268E560E008A70E5 /* Dictionary Metadata */; };
+		4E70495C26CC818000730D8A /* Mastery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70495B26CC818000730D8A /* Mastery.swift */; };
+		4E70495E26CE457500730D8A /* KanjiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70495D26CE457500730D8A /* KanjiTableViewCell.swift */; };
+		4E70496426CF415900730D8A /* Attributed String Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70496326CF415900730D8A /* Attributed String Extensions.swift */; };
 		4E867D35267A955200803068 /* Kana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E867D34267A955200803068 /* Kana.swift */; };
 		4EB42DCF26C4959F00062E1E /* 乗.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4EB4254626C4957400062E1E /* 乗.svg */; };
 		4EB42DD026C4959F00062E1E /* 世.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4EB4254726C4957400062E1E /* 世.svg */; };
@@ -2253,7 +2255,6 @@
 		4EF906DE26B0CA7C0009B98C /* JLPTLevelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906DD26B0CA7C0009B98C /* JLPTLevelTableViewCell.swift */; };
 		4EF906E026B0DD4A0009B98C /* JLPTLevelsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906DF26B0DD4A0009B98C /* JLPTLevelsTableView.swift */; };
 		4EF906E226B122CD0009B98C /* KanjiQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906E126B122CD0009B98C /* KanjiQuizViewController.swift */; };
-		4EF906E426B1CD7B0009B98C /* SampleWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906E326B1CD7A0009B98C /* SampleWordsViewController.swift */; };
 		BC8EAB00E3F6E73D49A0928C /* Pods_Kanji_Kitsune.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F615A4BDE70E66E45C8999 /* Pods_Kanji_Kitsune.framework */; };
 /* End PBXBuildFile section */
 
@@ -2261,7 +2262,6 @@
 		07F615A4BDE70E66E45C8999 /* Pods_Kanji_Kitsune.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kanji_Kitsune.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		202DA595FEFE07885CC6F6FF /* Pods-Kanji Kitsune.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kanji Kitsune.release.xcconfig"; path = "Target Support Files/Pods-Kanji Kitsune/Pods-Kanji Kitsune.release.xcconfig"; sourceTree = "<group>"; };
 		4E2C6DAD26B2240F00A28831 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
-		4E2C6DAF26B2893C00A28831 /* KanjiQuizCompletionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiQuizCompletionViewController.swift; sourceTree = "<group>"; };
 		4E2C6DB126B35B4A00A28831 /* KanjiDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiDetailsViewController.swift; sourceTree = "<group>"; };
 		4E2C6DB726B9D6A100A28831 /* DictionaryEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEntryTableViewCell.swift; sourceTree = "<group>"; };
 		4E2C6DBA26BB383800A28831 /* KanjiCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiCodable.swift; sourceTree = "<group>"; };
@@ -2275,6 +2275,9 @@
 		4E5CF75126C9CFA600124416 /* ProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicator.swift; sourceTree = "<group>"; };
 		4E63DC95268E509C008A70E5 /* Dictionary Output File 1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 1.txt"; sourceTree = "<group>"; };
 		4E63DC9B268E560E008A70E5 /* Dictionary Metadata */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Dictionary Metadata"; sourceTree = "<group>"; };
+		4E70495B26CC818000730D8A /* Mastery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mastery.swift; sourceTree = "<group>"; };
+		4E70495D26CE457500730D8A /* KanjiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiTableViewCell.swift; sourceTree = "<group>"; };
+		4E70496326CF415900730D8A /* Attributed String Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attributed String Extensions.swift"; sourceTree = "<group>"; };
 		4E867D34267A955200803068 /* Kana.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kana.swift; sourceTree = "<group>"; };
 		4EB4254626C4957400062E1E /* 乗.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "乗.svg"; sourceTree = "<group>"; };
 		4EB4254726C4957400062E1E /* 世.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "世.svg"; sourceTree = "<group>"; };
@@ -4508,7 +4511,6 @@
 		4EF906DD26B0CA7C0009B98C /* JLPTLevelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLPTLevelTableViewCell.swift; sourceTree = "<group>"; };
 		4EF906DF26B0DD4A0009B98C /* JLPTLevelsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLPTLevelsTableView.swift; sourceTree = "<group>"; };
 		4EF906E126B122CD0009B98C /* KanjiQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiQuizViewController.swift; sourceTree = "<group>"; };
-		4EF906E326B1CD7A0009B98C /* SampleWordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleWordsViewController.swift; sourceTree = "<group>"; };
 		F2743AA2D7CB601644EB40AD /* Pods-Kanji Kitsune.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kanji Kitsune.debug.xcconfig"; path = "Target Support Files/Pods-Kanji Kitsune/Pods-Kanji Kitsune.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -4586,14 +4588,12 @@
 		4E63DC99268E51BD008A70E5 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4E5CF74926C87B2C00124416 /* ContainerViewController.swift */,
 				4EB4F07026C1F29800062E1E /* HomeViewController.swift */,
+				4E5CF74526C868EE00124416 /* InstallationViewController.swift */,
 				4ECA11042679BD160034E0CA /* JLPTSelectionViewController.swift */,
 				4E2C6DB126B35B4A00A28831 /* KanjiDetailsViewController.swift */,
-				4E2C6DAF26B2893C00A28831 /* KanjiQuizCompletionViewController.swift */,
 				4EF906E126B122CD0009B98C /* KanjiQuizViewController.swift */,
-				4EF906E326B1CD7A0009B98C /* SampleWordsViewController.swift */,
-				4E5CF74526C868EE00124416 /* InstallationViewController.swift */,
-				4E5CF74926C87B2C00124416 /* ContainerViewController.swift */,
 				4E5CF74F26C88F9F00124416 /* ViewController Extensions.swift */,
 			);
 			path = "View Controllers";
@@ -4610,9 +4610,11 @@
 				4E4D8BA426956FBA0014178A /* JMDictReader.swift */,
 				4E867D34267A955200803068 /* Kana.swift */,
 				4EF906A226A7D2D50009B98C /* KanjiQuizzer.swift */,
+				4E70495B26CC818000730D8A /* Mastery.swift */,
+				4E5CF75126C9CFA600124416 /* ProgressIndicator.swift */,
 				4EF906C526AA220F0009B98C /* Transformers.swift */,
 				4ECB14342690CCED00538D28 /* WordExtractor.swift */,
-				4E5CF75126C9CFA600124416 /* ProgressIndicator.swift */,
+				4E70496326CF415900730D8A /* Attributed String Extensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -6862,9 +6864,10 @@
 			isa = PBXGroup;
 			children = (
 				4E2C6DAD26B2240F00A28831 /* Canvas.swift */,
-				4EF906DD26B0CA7C0009B98C /* JLPTLevelTableViewCell.swift */,
 				4E2C6DB726B9D6A100A28831 /* DictionaryEntryTableViewCell.swift */,
 				4EF906DF26B0DD4A0009B98C /* JLPTLevelsTableView.swift */,
+				4EF906DD26B0CA7C0009B98C /* JLPTLevelTableViewCell.swift */,
+				4E70495D26CE457500730D8A /* KanjiTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -9214,6 +9217,7 @@
 				4E2C6DB226B35B4A00A28831 /* KanjiDetailsViewController.swift in Sources */,
 				4ECB1433268EE36A00538D28 /* Entry.swift in Sources */,
 				4EF906CF26AA7A450009B98C /* Word+CoreDataProperties.swift in Sources */,
+				4E70496426CF415900730D8A /* Attributed String Extensions.swift in Sources */,
 				4EF906BD26A7FC520009B98C /* Kanji+CoreDataProperties.swift in Sources */,
 				4EF906C426AA1F330009B98C /* Hint.swift in Sources */,
 				4E2C6DC026BB9AFB00A28831 /* KanjiResourcesCodable.swift in Sources */,
@@ -9222,18 +9226,18 @@
 				4EF906DE26B0CA7C0009B98C /* JLPTLevelTableViewCell.swift in Sources */,
 				4EF906A326A7D2D50009B98C /* KanjiQuizzer.swift in Sources */,
 				4EF906D426AA7A450009B98C /* Meaning+CoreDataClass.swift in Sources */,
+				4E70495C26CC818000730D8A /* Mastery.swift in Sources */,
 				4EF906BE26A7FC520009B98C /* Kanji+CoreDataClass.swift in Sources */,
 				4EF906D326AA7A450009B98C /* KanjiResources+CoreDataProperties.swift in Sources */,
 				4EF906E026B0DD4A0009B98C /* JLPTLevelsTableView.swift in Sources */,
-				4EF906E426B1CD7B0009B98C /* SampleWordsViewController.swift in Sources */,
 				4ECB14352690CCED00538D28 /* WordExtractor.swift in Sources */,
+				4E70495E26CE457500730D8A /* KanjiTableViewCell.swift in Sources */,
 				4E5CF75226C9CFA600124416 /* ProgressIndicator.swift in Sources */,
 				4ECA11032679BD160034E0CA /* SceneDelegate.swift in Sources */,
 				4EF906A626A7EEBC0009B98C /* Kanji Kitsune.xcdatamodeld in Sources */,
 				4EF906D026AA7A450009B98C /* KanaReading+CoreDataClass.swift in Sources */,
 				4EF906D226AA7A450009B98C /* Meaning+CoreDataProperties.swift in Sources */,
 				4EF906DA26ACD14B0009B98C /* CoreDataCRUD.swift in Sources */,
-				4E2C6DB026B2893C00A28831 /* KanjiQuizCompletionViewController.swift in Sources */,
 				4E5CF75026C88F9F00124416 /* ViewController Extensions.swift in Sources */,
 				4EF906D126AA7A450009B98C /* KanjiResources+CoreDataClass.swift in Sources */,
 				4EF906D626AA7A450009B98C /* Word+CoreDataClass.swift in Sources */,

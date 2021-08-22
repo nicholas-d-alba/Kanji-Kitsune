@@ -48,11 +48,21 @@ struct KanjiQuiz {
     // MARK: Public Methods and Computed Properties
     
     public mutating func kanjiWasRemembered() {
+        let kanji = currentKanji
+        if Int(kanji.mastery) > strongestMastery {
+            kanji.mastery = kanji.mastery - 1
+            dataManager.save()
+        }
         wasKanjiRemembered.append(true)
         advanceKanji()
     }
     
     public mutating func kanjiWasForgotten() {
+        let kanji = currentKanji
+        if Int(kanji.mastery) < weakestMastery {
+            kanji.mastery = kanji.mastery + 1
+            dataManager.save()
+        }
         wasKanjiRemembered.append(false)
         advanceKanji()
     }
@@ -61,8 +71,34 @@ struct KanjiQuiz {
         index = index + 1
     }
     
-    public var kanjiRemembered: Int {
-        return wasKanjiRemembered.filter({$0 == true}).count
+    public var kanjiRemembered: [Kanji] {
+        var kanjiRemembered:[Kanji] = []
+        for (i, character) in kanji.enumerated() {
+            if wasKanjiRemembered[i] {
+                kanjiRemembered.append(character)
+            }
+        }
+        return kanjiRemembered
+    }
+    
+    public var kanjiForgotten: [Kanji] {
+        var kanjiForgotten:[Kanji] = []
+        for (i, character) in kanji.enumerated() {
+            if !wasKanjiRemembered[i] {
+                kanjiForgotten.append(character)
+            }
+        }
+        return kanjiForgotten
+    }
+    
+    public var wordsForForgottenKanji: [[Word]?] {
+        var wordsForForgottenKanji:[[Word]?] = []
+        for (i, wordList) in wordLists.enumerated() {
+            if !wasKanjiRemembered[i] {
+                wordsForForgottenKanji.append(wordList)
+            }
+        }
+        return wordsForForgottenKanji
     }
     
     public var quizLength: Int {
@@ -90,7 +126,7 @@ struct KanjiQuiz {
     private func selectKanji(_ quizLength: Int, fromKanji kanjiList: [Kanji]) -> [Kanji] {
         var kanjiWithCumulativeWeights:[(weight: Int, kanji: Kanji?)] = [(0,nil)]
         for kanji in kanjiList {
-            let delta = Int(kanji.mastery) * weightMultiplier
+            let delta = (Int(kanji.mastery)+1) * weightMultiplier
             let newWeight = kanjiWithCumulativeWeights.last!.weight + delta
             kanjiWithCumulativeWeights.append((newWeight, kanji))
         }
@@ -138,3 +174,6 @@ struct KanjiQuiz {
     private var hintLists: [[Hint]?] = []
     private var wordLists: [[Word]?] = []
 }
+
+private let weakestMastery = 10
+private let strongestMastery = 0

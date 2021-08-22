@@ -13,7 +13,8 @@ import CoreData
 public class Meaning: NSManagedObject {
 
     override public var description: String {
-        var description = "Definitions: \(definitions!)\n"
+        var description = "Meaning \(order)\n"
+        description += "Definitions: \(definitions!)\n"
         if let fields = fields {
             description += "Fields: \(fields)\n"
         }
