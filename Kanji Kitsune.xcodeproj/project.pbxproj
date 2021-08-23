@@ -24,6 +24,7 @@
 		4E70495C26CC818000730D8A /* Mastery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70495B26CC818000730D8A /* Mastery.swift */; };
 		4E70495E26CE457500730D8A /* KanjiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70495D26CE457500730D8A /* KanjiTableViewCell.swift */; };
 		4E70496426CF415900730D8A /* Attributed String Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70496326CF415900730D8A /* Attributed String Extensions.swift */; };
+		4E70496826D4302A00730D8A /* ApplicationInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70496726D4302A00730D8A /* ApplicationInformationViewController.swift */; };
 		4E867D35267A955200803068 /* Kana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E867D34267A955200803068 /* Kana.swift */; };
 		4EB42DCF26C4959F00062E1E /* 乗.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4EB4254626C4957400062E1E /* 乗.svg */; };
 		4EB42DD026C4959F00062E1E /* 世.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4EB4254726C4957400062E1E /* 世.svg */; };
@@ -2278,6 +2279,7 @@
 		4E70495B26CC818000730D8A /* Mastery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mastery.swift; sourceTree = "<group>"; };
 		4E70495D26CE457500730D8A /* KanjiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiTableViewCell.swift; sourceTree = "<group>"; };
 		4E70496326CF415900730D8A /* Attributed String Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attributed String Extensions.swift"; sourceTree = "<group>"; };
+		4E70496726D4302A00730D8A /* ApplicationInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationInformationViewController.swift; sourceTree = "<group>"; };
 		4E867D34267A955200803068 /* Kana.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kana.swift; sourceTree = "<group>"; };
 		4EB4254626C4957400062E1E /* 乗.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "乗.svg"; sourceTree = "<group>"; };
 		4EB4254726C4957400062E1E /* 世.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "世.svg"; sourceTree = "<group>"; };
@@ -4595,6 +4597,7 @@
 				4E2C6DB126B35B4A00A28831 /* KanjiDetailsViewController.swift */,
 				4EF906E126B122CD0009B98C /* KanjiQuizViewController.swift */,
 				4E5CF74F26C88F9F00124416 /* ViewController Extensions.swift */,
+				4E70496726D4302A00730D8A /* ApplicationInformationViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -9224,6 +9227,7 @@
 				4EF906E226B122CD0009B98C /* KanjiQuizViewController.swift in Sources */,
 				4ECA11012679BD160034E0CA /* AppDelegate.swift in Sources */,
 				4EF906DE26B0CA7C0009B98C /* JLPTLevelTableViewCell.swift in Sources */,
+				4E70496826D4302A00730D8A /* ApplicationInformationViewController.swift in Sources */,
 				4EF906A326A7D2D50009B98C /* KanjiQuizzer.swift in Sources */,
 				4EF906D426AA7A450009B98C /* Meaning+CoreDataClass.swift in Sources */,
 				4E70495C26CC818000730D8A /* Mastery.swift in Sources */,

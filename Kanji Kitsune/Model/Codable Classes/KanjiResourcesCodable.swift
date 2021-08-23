@@ -32,7 +32,6 @@ struct MeaningCodable: Codable {
     
     var definitions: [String]
     var examples: [String]
-    var fields: [String]
     var miscellaneousEntities: [String]
     var order: Int
 }

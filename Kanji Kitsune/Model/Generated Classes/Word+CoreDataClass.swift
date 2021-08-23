@@ -26,7 +26,6 @@ public class Word: NSManagedObject {
             let meaning = Meaning(context: context)
             meaning.definitions = meaningCodable.definitions
             meaning.examples = meaningCodable.examples.isEmpty ? nil : meaningCodable.examples
-            meaning.fields = meaningCodable.fields.isEmpty ? nil : meaningCodable.fields
             meaning.miscellaneousEntities = meaningCodable.miscellaneousEntities.isEmpty ? nil : meaningCodable.miscellaneousEntities
             meaning.order = Int64(meaningCodable.order)
             word.addToMeanings(meaning)

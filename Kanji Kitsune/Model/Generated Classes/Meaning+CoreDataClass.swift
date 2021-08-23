@@ -15,9 +15,6 @@ public class Meaning: NSManagedObject {
     override public var description: String {
         var description = "Meaning \(order)\n"
         description += "Definitions: \(definitions!)\n"
-        if let fields = fields {
-            description += "Fields: \(fields)\n"
-        }
         if let miscellaneousEntities = miscellaneousEntities {
             description += "Misc: \(miscellaneousEntities)\n"
         }

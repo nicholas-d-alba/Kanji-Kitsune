@@ -91,9 +91,8 @@ func allSenseObjects(forEntry entry: XML.Accessor) -> [Sense]? {
     for sense in entry["sense"] {
         let meanings = allMeanings(forSense: sense)
         let examples = allExamples(forSense: sense)
-        let fields = allFields(forSense: sense)
         let misc = allMiscellaneousEntities(forSense: sense)
-        let senseStruct = Sense(meanings: meanings, examples: examples, fields: fields, miscellaneousEntities: misc)
+        let senseStruct = Sense(meanings: meanings, examples: examples, miscellaneousEntities: misc)
         senseStructs.append(senseStruct)
     }
     return senseStructs.isEmpty ? nil : senseStructs
@@ -119,17 +118,6 @@ func allExamples(forSense sense: XML.Accessor) -> [String]? {
     return examples.isEmpty ? nil : examples
 }
 
-func allFields(forSense sense: XML.Accessor) -> [String]? {
-    var fields:[String] = []
-    for fieldLabel in sense["field"] {
-        if let text = fieldLabel.text {
-            let field = fieldMap[text]
-            fields.append(field!)
-        }
-    }
-    return fields.isEmpty ? nil : fields
-}
-
 func allMiscellaneousEntities(forSense sense: XML.Accessor) -> [String]? {
     var entities:[String] = []
     for entityLabel in sense["misc"] {
@@ -141,11 +129,6 @@ func allMiscellaneousEntities(forSense sense: XML.Accessor) -> [String]? {
     return entities.isEmpty ? nil : entities
 }
 
-
-let fieldMap:[String:String] = [
-    "agric":"agriculture", "anat":"Anatomy", "archeol":"Archeology", "archit":"Architecture", "art":"Art, Aesthetics", "astron":"Astronomy", "audvid":"Audiovisual", "aviat":"Aviation", "baseb":"Baseball", "biochem":"Biochemistry", "biol":"Biology", "bot":"Botany", "Buddh":"Buddhism", "bus":"Business", "chem":"Chemistry", "Christn":"Christianity", "cloth":"Clothing", "comp":"Computing", "cryst":"Crystallography", "ecol":"Ecology", "econ":"Economics", "elec":"Electricity, Electrical Engineering", "electr":"Electronics", "embryo":"Embryology", "engr":"Engineering", "ent":"Entomology", "finc":"Finance", "fish":"Fishing", "food":"Food, Cooking", "gardn":"Gardening, Horticulture", "genet":"Genetics", "geogr":"Geography", "geol":"Geology", "geom":"Geometry", "go": "Go (game)", "golf":"Golf", "gramm":"Grammar", "grmyth":"Greek Mythology", "hanaf":"Hanafuda", "horse":"Horse Racing", "law":"Law", "ling":"Linguistics", "logic":"Logic", "MA":"Martial Arts", "mahj":"Mahjong", "math":"Mathematics", "mech":"Mechanical Engineering", "med":"Medicine", "met":"Meteorology", "mil":"Military", "music":"Music", "ornith":"Ornithology", "paleo":"Paleonthology", "pathol":"Pathology", "pharm":"Pharmacy", "phil":"Philosophy", "photo":"Photography", "physics":"Physics", "physiol":"Physiology", "print":"Printing", "psy":"Psychiatry", "psych":"Psychology", "rail":"Railway", "Shinto":"Shinto", "shogi":"Shogi", "sports":"Sports", "stat":"Statistics", "sumo":"Sumo", "telec":"Telecommunications", "tradem":"Trademark", "vidg":"Video Games", "zool":"Zoology"
-]
- 
 let miscellaneousEntitiesMap = [
     "abbr":"abbreviation", "arch":"archaism", "char":"character", "chn":"children's language", "col":"colloquialism", "company":"company name", "creat":"creature", "dated":"dated term", "dei":"deity", "derog":"derogatory", "doc":"document", "ev":"event", "fam":"familiar language", "fem":"female term or language", "fict":"fiction", "form":"formal or literary term", "given":"given name or forename, gender not specified", "group":"group", "hist":"historical term", "hon":"honorific or respectful (sonkeigo) language", "hum":"humble (kenjougo) language", "id":"idiomatic expression", "joc":"jocular, humorous term", "leg":"legend", "m-sl":"manga slang", "male":"male term or language", "myth":"mythology", "net-sl":"internet slang", "obj":"object", "obs":"obsolete term", "obsc":"obscure term", "on-mim":"onomatopoeic or mimetic word", "organization":"organization name", "oth":"other", "person":"full name of a particular person", "place":"place name", "poet":"poetical term", "pol":"polite (teineigo) language", "product":"product name", "proverb":"proverb", "quote":"quotation", "rare":"rare", "relig":"religion", "sens":"sensitive", "serv":"service", "sl":"slang", "station":"railway station", "surname":"family or surname", "uk":"word usually written with kana alone", "unclass":"unclassified name", "vulg":"vulgar expression or word", "work":"name of a work of art, literature, music, etc.", "X":"rude or X-rated term (not displayed in educational software)", "yoji":"yojijukugo"
 ]

@@ -186,6 +186,7 @@ class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITab
         wordsTableView.layer.borderColor = borderColor.cgColor
         wordsTableView.rowHeight = UITableView.automaticDimension
         wordsTableView.estimatedRowHeight = 88
+        wordsTableView.backgroundColor = backgroundColor
         
         NSLayoutConstraint.activate([
             wordsTableView.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 8),

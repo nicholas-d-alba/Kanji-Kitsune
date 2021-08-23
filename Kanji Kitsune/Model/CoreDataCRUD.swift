@@ -122,10 +122,9 @@ class PersistentDataManager {
                 for (i, senseElement) in entry.senseElements.enumerated() {
                     let definitions = senseElement.meanings
                     let examples = senseElement.examples ?? []
-                    let fields = senseElement.fields ?? []
                     let miscellaneousEntities = senseElement.miscellaneousEntities ?? []
                     let order = i
-                    let meaning = MeaningCodable(definitions: definitions, examples: examples, fields: fields, miscellaneousEntities: miscellaneousEntities, order: order)
+                    let meaning = MeaningCodable(definitions: definitions, examples: examples, miscellaneousEntities: miscellaneousEntities, order: order)
                     meanings.append(meaning)
                 }
                 
@@ -201,24 +200,6 @@ class PersistentDataManager {
     }
     
     // MARK: Core Data Set-Up with Progress Indicator
-    
-//    func setUpCoreDataIfNeeded(completion: (ProgressIndicator) -> Void) {
-//        if !UserDefaults.standard.bool(forKey: "Saved") {
-//            setUpKanjiIfNeeded()
-//            print("Kanji have been set up.")
-//            setUpResourcesIfNeeded(completion: completion)
-//            print("Resources have been set up.")
-//            UserDefaults.standard.set(true, forKey: "Saved")
-//        }
-//    }
-//    
-//    private func setUpResourcesIfNeeded(completion: (ProgressIndicator) -> Void) {
-//        guard let resourcesCodables = deserializeKanjiResourcesFromJSON() else {
-//            print("Couldn't deserialize all KanjiResources from JSON file.")
-//            return
-//        }
-//        createAndSaveResources(from: resourcesCodables, completion: completion)
-//    }
    
     func createAndSaveResource(from codable: KanjiResourcesCodable)  {
         _ = KanjiResources.instantiate(from: codable, withContext: context)
@@ -316,7 +297,6 @@ class PersistentDataManager {
                     let meaning = Meaning(context: context)
                     meaning.definitions = senseElement.meanings
                     meaning.examples = senseElement.examples
-                    meaning.fields = senseElement.fields
                     meaning.miscellaneousEntities = senseElement.miscellaneousEntities
                     word.addToMeanings(meaning)
                 }

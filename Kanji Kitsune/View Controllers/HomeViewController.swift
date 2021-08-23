@@ -94,7 +94,8 @@ class HomeViewController: UIViewController {
     }
     
     @objc func appInformationButtonPressed() {
-        
+        let applicationInformationViewController = ApplicationInformationViewController()
+        navigationController?.pushViewController(applicationInformationViewController, animated: false)
     }
     
     // MARK: Properties

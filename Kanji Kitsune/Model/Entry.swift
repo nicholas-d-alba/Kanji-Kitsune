@@ -73,18 +73,14 @@ public class ReadingElement: NSObject {
 
 public class Sense: NSObject {
 
-    init(meanings: [String], examples: [String]?, fields: [String]?, miscellaneousEntities: [String]?) {
+    init(meanings: [String], examples: [String]?, miscellaneousEntities: [String]?) {
         self.meanings = meanings
         self.examples = examples
-        self.fields = fields
         self.miscellaneousEntities = miscellaneousEntities
     }
     
     override public var description: String {
         var description = "Meanings: \(meanings)\n"
-        if let fields = fields {
-            description += "Fields: \(fields)\n"
-        }
         if let miscellaneousEntities = miscellaneousEntities {
             description += "Misc: \(miscellaneousEntities)\n"
         }
@@ -97,12 +93,10 @@ public class Sense: NSObject {
     enum Key: String {
         case meanings = "meanings"
         case examples = "examples"
-        case fields = "fields"
         case miscellaneousEntities = "miscellaneousEntities"
     }
     
     var meanings: [String]
     var examples: [String]?
-    var fields: [String]?
     var miscellaneousEntities: [String]?
 }
