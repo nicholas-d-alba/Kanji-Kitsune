@@ -286,6 +286,7 @@ class KanjiDetailsViewController: UIViewController, UITableViewDataSource, UITab
         }
         dictionaryEntryCell.loadDetails(forWord: words[indexPath.row])
         dictionaryEntryCell.setColors(forViewController: self)
+        dictionaryEntryCell.tintColor = textColor
         return dictionaryEntryCell
     }
 

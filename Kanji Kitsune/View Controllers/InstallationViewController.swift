@@ -188,10 +188,8 @@ class InstallationViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
         label.lineBreakMode = .byWordWrapping
+        label.text = installationAdvisory
         label.numberOfLines = 0
-        label.text = """
-            Kanji Kitsune needs to install 18 MB of data into the device's storage in order to work. This process only needs to be completed once.
-            """
         return label
     }()
     
@@ -230,3 +228,5 @@ class InstallationViewController: UIViewController {
     
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 }
+
+private let installationAdvisory = "Kanji Kitsune needs to install 16 MB of data into the device's storage in order to work. This process only needs to be completed once."

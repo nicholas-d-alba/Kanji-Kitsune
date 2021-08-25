@@ -16,7 +16,7 @@ import SwiftyXMLParser
 func extractDetailsForEntryContainingKanji(forEntry entry: XML.Accessor) -> Entry? {
     guard let kanjiElements = allKanjiElements(forEntry: entry),
           let readingElements = allReadingElements(forEntry: entry),
-          let senseElements = allSenseObjects(forEntry: entry) else {
+          let senseElements = importantSenseObjects(forEntry: entry) else {
         return nil
     }
     if let priority = priority(forEntry: entry) {
@@ -86,6 +86,14 @@ func priority(forEntry entry: XML.Accessor) -> Int? {
     return nil
 }
 
+func importantSenseObjects(forEntry entry: XML.Accessor) -> [Sense]? {
+    if let senseObjects = allSenseObjects(forEntry: entry) {
+        return Array(senseObjects.prefix(meaningLimit))
+    } else {
+        return nil
+    }
+}
+
 func allSenseObjects(forEntry entry: XML.Accessor) -> [Sense]? {
     var senseStructs:[Sense] = []
     for sense in entry["sense"] {
@@ -130,5 +138,7 @@ func allMiscellaneousEntities(forSense sense: XML.Accessor) -> [String]? {
 }
 
 let miscellaneousEntitiesMap = [
-    "abbr":"abbreviation", "arch":"archaism", "char":"character", "chn":"children's language", "col":"colloquialism", "company":"company name", "creat":"creature", "dated":"dated term", "dei":"deity", "derog":"derogatory", "doc":"document", "ev":"event", "fam":"familiar language", "fem":"female term or language", "fict":"fiction", "form":"formal or literary term", "given":"given name or forename, gender not specified", "group":"group", "hist":"historical term", "hon":"honorific or respectful (sonkeigo) language", "hum":"humble (kenjougo) language", "id":"idiomatic expression", "joc":"jocular, humorous term", "leg":"legend", "m-sl":"manga slang", "male":"male term or language", "myth":"mythology", "net-sl":"internet slang", "obj":"object", "obs":"obsolete term", "obsc":"obscure term", "on-mim":"onomatopoeic or mimetic word", "organization":"organization name", "oth":"other", "person":"full name of a particular person", "place":"place name", "poet":"poetical term", "pol":"polite (teineigo) language", "product":"product name", "proverb":"proverb", "quote":"quotation", "rare":"rare", "relig":"religion", "sens":"sensitive", "serv":"service", "sl":"slang", "station":"railway station", "surname":"family or surname", "uk":"word usually written with kana alone", "unclass":"unclassified name", "vulg":"vulgar expression or word", "work":"name of a work of art, literature, music, etc.", "X":"rude or X-rated term (not displayed in educational software)", "yoji":"yojijukugo"
+    "abbr":"abbreviation", "arch":"archaism", "char":"character", "chn":"children's language", "col":"colloquialism", "company":"company name", "creat":"creature", "dated":"dated term", "dei":"deity", "derog":"derogatory", "doc":"document", "ev":"event", "fam":"familiar language", "fem":"female term or language", "fict":"fiction", "form":"formal or literary term", "given":"given name or forename, gender not specified", "group":"group", "hist":"historical term", "hon":"honorific or respectful (sonkeigo) language", "hum":"humble (kenjougo) language", "id":"idiomatic expression", "joc":"jocular, humorous term", "leg":"legend", "m-sl":"manga slang", "male":"male term or language", "myth":"mythology", "net-sl":"internet slang", "obj":"object", "obs":"obsolete term", "obsc":"obscure term", "on-mim":"onomatopoeic or mimetic word", "organization":"organization name", "oth":"other", "person":"full name of a particular person", "place":"place name", "poet":"poetical term", "pol":"polite (teineigo) language", "product":"product name", "proverb":"proverb", "quote":"quotation", "rare":"rare", "relig":"religion", "sens":"sensitive", "serv":"service", "sl":"slang", "station":"railway station", "surname":"family or surname", "uk":"usually written with kana alone", "unclass":"unclassified name", "vulg":"vulgar expression or word", "work":"name of a work of art, literature, music, etc.", "X":"rude or X-rated term (not displayed in educational software)", "yoji":"yojijukugo"
 ]
+
+private let meaningLimit = 5
