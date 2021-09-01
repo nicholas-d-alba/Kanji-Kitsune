@@ -14,14 +14,16 @@ class JLPTSelectionViewController: UIViewController, UITableViewDataSource, UITa
     
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         setUpUI()
-        let barButtonItem = UIBarButtonItem(title: "LS", style: .plain, target: nil, action: nil)
-        navigationItem.backBarButtonItem = barButtonItem
-        navigationItem.title = "Level Selection"
-    
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadKanji()
+        jlptLevelsTableView.reloadData()
+    }
+    
     
     // MARK: UI Set-Up
     
@@ -30,6 +32,7 @@ class JLPTSelectionViewController: UIViewController, UITableViewDataSource, UITa
         setUpTableView()
         setUpPickerView()
         setUpStartQuizButton()
+        setUpBar()
     }
     
     private func setUpTableView() {
@@ -43,6 +46,7 @@ class JLPTSelectionViewController: UIViewController, UITableViewDataSource, UITa
             jlptLevelsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
             jlptLevelsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8)
         ])
+        jlptLevelsTableView.backgroundColor = backgroundColor
         jlptLevelsTableView.layer.borderColor = borderColor.cgColor
         jlptLevelsTableView.rowHeight = 44
     }
@@ -55,20 +59,7 @@ class JLPTSelectionViewController: UIViewController, UITableViewDataSource, UITa
             quizLengthLabel.leadingAnchor.constraint(equalTo: jlptLevelsTableView.leadingAnchor),
             quizLengthLabel.widthAnchor.constraint(equalToConstant: quizLengthLabel.intrinsicContentSize.width)
         ])
-        
-//        view.addSubview(quizLengthTextFieldContainer)
-//        NSLayoutConstraint.activate([
-//            quizLengthTextFieldContainer.topAnchor.constraint(equalTo: quizLengthLabel.topAnchor),
-//            quizLengthTextFieldContainer.leadingAnchor.constraint(equalTo: quizLengthLabel.trailingAnchor, constant: 8),
-//            quizLengthTextFieldContainer.bottomAnchor.constraint(equalTo: quizLengthLabel.bottomAnchor),
-//            quizLengthTextFieldContainer.trailingAnchor.constraint(equalTo: jlptLevelsTableView.trailingAnchor),
-//        ])
-//        quizLengthTextFieldContainer.layer.borderWidth = 2.0
-//        quizLengthTextFieldContainer.layer.borderColor = UIColor.black.cgColor
-        
-        
-        // quizLengthTextFieldContainer.addSubview(quizLengthTextField)
-        
+    
         view.addSubview(quizLengthTextField)
         quizLengthTextField.delegate = self
         quizLengthTextField.backgroundColor = contentBackgroundColor
@@ -79,9 +70,7 @@ class JLPTSelectionViewController: UIViewController, UITableViewDataSource, UITa
             quizLengthTextField.leadingAnchor.constraint(equalTo: quizLengthLabel.trailingAnchor, constant: 8),
             quizLengthTextField.firstBaselineAnchor.constraint(equalTo: quizLengthLabel.firstBaselineAnchor),
             quizLengthTextField.trailingAnchor.constraint(equalTo: jlptLevelsTableView.trailingAnchor),
-//            quizLengthTextField.widthAnchor.constraint(equalTo: quizLengthTextFieldContainer.widthAnchor)
         ])
-        
         
         quizLengthPickerView.dataSource = self
         quizLengthPickerView.delegate = self
@@ -106,6 +95,22 @@ class JLPTSelectionViewController: UIViewController, UITableViewDataSource, UITa
         startQuizButton.addTarget(self, action: #selector(startQuiz), for: .touchUpInside)
     }
     
+    private func setUpBar() {
+        let barButtonItem = UIBarButtonItem(title: "LS", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = barButtonItem
+        navigationItem.title = "Level Selection"
+    }
+    
+    private func loadKanji() {
+        kanji = [[], [], [], [], []]
+        let dataManager = PersistentDataManager(context: context)
+        let allKanji = dataManager.loadKanji()
+        for character in allKanji {
+            let level = Int(character.jlpt)
+            kanji[5-level].append(character)
+        }
+    }
+    
     // MARK: Interactivity
     
     @objc func startQuiz() {
@@ -115,18 +120,19 @@ class JLPTSelectionViewController: UIViewController, UITableViewDataSource, UITa
                 levels.append(includedLevels.count-i)
             }
         }
-        print(levels)
-        if levels.count == 0 {
+        guard levels.count > 0 else {
+            let alert = UIAlertController(title: "No Levels Selected", message: "Tap on the cells of the table to select kanji levels.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             return
         }
         
-        let start = DispatchTime.now()
-        let quiz = KanjiQuiz(withContext: context, ofLength: quizLength, jlptLevels: levels)
-        let end = DispatchTime.now()
-        let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
-        let timeInterval = Double(nanoTime) / 1_000_000_000
-        print(timeInterval)
+        var selectedKanji:[Kanji] = []
+        for level in levels {
+            selectedKanji.append(contentsOf: kanji[5-level])
+        }
         
+        let quiz = KanjiQuiz(withContext: context, ofLength: quizLength, kanji: selectedKanji)
         let quizViewController = KanjiQuizViewController(withKanjiQuiz: quiz)
         navigationController?.pushViewController(quizViewController, animated: true)
     }
@@ -144,7 +150,9 @@ class JLPTSelectionViewController: UIViewController, UITableViewDataSource, UITa
         guard let levels = jlptLevels, let jlptLevelCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as? JLPTLevelTableViewCell else {
             return UITableViewCell()
         }
-        jlptLevelCell.load(withText: levels[indexPath.row], forViewController: self)
+        let mastered = kanji[indexPath.row].filter{$0.isMastered}.count
+        let total = kanji[indexPath.row].count
+        jlptLevelCell.load(withText: levels[indexPath.row], numMastered: mastered, numTotal: total, forViewController: self)
         jlptLevelCell.tintColor = textColor
         jlptLevelCell.backgroundColor = contentBackgroundColor
         return jlptLevelCell
@@ -244,6 +252,7 @@ class JLPTSelectionViewController: UIViewController, UITableViewDataSource, UITa
     }()
     
     private var jlptLevels: [String]? = ["N5", "N4", "N3", "N2", "N1"]
+    private var kanji: [[Kanji]] = [[], [], [], [], []]
     private var includedLevels = [false, false, false, false, false]
     private let cellReuseIdentifier = "cellReuseIdentifier"
     

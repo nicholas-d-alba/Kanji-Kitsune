@@ -22,59 +22,39 @@ class ApplicationInformationViewController: UIViewController {
     // MARK: UI Set-Up
     
     private func setUpUI() {
-        setUpContainerView()
-        setUpLabels()
+        setUpHeaderLabel()
+        setUpTextView()
     }
     
-    private func setUpContainerView() {
-        containerView.addSubview(scrollView)
-        view.addSubview(containerView)
-        
+    private func setUpHeaderLabel() {
+        view.addSubview(headerLabel)
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
-            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
-            containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
-            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
-            scrollView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
+            headerLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
+            headerLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            headerLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
-    }
-    
-    private func setUpLabels() {
-        scrollView.addSubview(headerLabel)
-        scrollView.addSubview(appInformationLabel)
-        
-        NSLayoutConstraint.activate([
-            headerLabel.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            headerLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            headerLabel.bottomAnchor.constraint(equalTo: appInformationLabel.topAnchor, constant: -8),
-            headerLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            appInformationLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            appInformationLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            appInformationLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            appInformationLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
-        ])
-        
         headerLabel.textColor = textColor
-        appInformationLabel.textColor = textColor
+    }
+    
+    private func setUpTextView() {
+        view.addSubview(appInformationTextView)
+        NSLayoutConstraint.activate([
+            appInformationTextView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor),
+            appInformationTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            appInformationTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            appInformationTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8)
+        ])
+        appInformationTextView.textColor = textColor
+        appInformationTextView.backgroundColor = backgroundColor
+        appInformationTextView.linkTextAttributes = [
+            .foregroundColor: textColor,
+            .underlineStyle: NSUnderlineStyle.single.rawValue,
+            .font: UIFont.systemFont(ofSize: 20, weight: .bold)
+        ]
     }
     
     // MARK: Properties
-    
-    private let containerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private let scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        return scrollView
-    }()
-    
+
     private let headerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -84,17 +64,45 @@ class ApplicationInformationViewController: UIViewController {
         return label
     }()
     
-    private let appInformationLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
-        label.lineBreakMode = .byWordWrapping
-        label.text = appInformation
-        label.numberOfLines = 0
-        return label
+    private let appInformationTextView: UITextView = {
+        guard let kanjiURL = URL(string: kanjiURLString),
+              let genkiURL = URL(string: genkiURLString),
+              let jmDictURL = URL(string: jmDictURLString),
+              let kanjiVGURL = URL(string: kanjiVGURL),
+              let kanjiSubstring = appInformation.range(of: kanjiDescriptionString),
+              let genkiSubstring = appInformation.range(of: genkiDescriptionString),
+              let jmDictSubstring = appInformation.range(of: jmDictDescriptionString),
+              let kanjiVGSubstring = appInformation.range(of: kanjiVGDescriptionString) else {
+            return UITextView()
+        }
+        
+        let textView = UITextView()
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        let appInformationAttributedString = NSMutableAttributedString(string: appInformation, attributes: [.font: UIFont.systemFont(ofSize: 20, weight: .regular)])
+        
+        appInformationAttributedString.addAttribute(.link, value: kanjiURL, range: NSRange(kanjiSubstring, in: appInformation))
+        appInformationAttributedString.addAttribute(.link, value: genkiURL, range: NSRange(genkiSubstring, in: appInformation))
+        appInformationAttributedString.addAttribute(.link, value: jmDictURL, range: NSRange(jmDictSubstring, in: appInformation))
+        appInformationAttributedString.addAttribute(.link, value: kanjiVGURL, range: NSRange(kanjiVGSubstring, in: appInformation))
+        
+        textView.attributedText = appInformationAttributedString
+        textView.isUserInteractionEnabled = true
+        textView.isEditable = false
+        
+        return textView
     }()
     
 }
 
-private let appInformation = "Kanji Kitsune is a flashcard app intended to help you memorize the most commonly used characters in Japanese. It is not intended to be a replacement for other resources which are useful in learning any language, such as a language tutor or a textbook. And it is not intended for absolute beginners of the language - if that describes you, I would recommend that you start off with a textbook like Genki: An Introductory Approach to Elementary Japanese. But as long as you have a basic understanding of how hiragana, katakana, and kanji work, I hope this app can assist with kanji memorization, which is probably one of the most challenging and time-consuming hurdles in learning Japanese.\n\nThe kanji data come from developer davidluzgouveia on GitHub, and is available at https://github.com/davidluzgouveia/kanji-data\n\nThe word data comes from The JMDict project, and is available at http://www.edrdg.org/jmdict/j_jmdict.html\n\nAnd the kanji stroke diagrams come from KanjiVG, which can be reached at https://kanjivg.tagaini.net/\n\nThank you for your interest in the app - I hope it can help you in your studies. :)\n\n-Nicholas"
+private let kanjiDescriptionString = "davidluzgouveia"
+private let kanjiURLString = "https://github.com/davidluzgouveia/kanji-data"
+private let genkiDescriptionString = "Genki"
+private let genkiURLString = "https://en.m.wikipedia.org/wiki/Genki:_An_Integrated_Course_in_Elementary_Japanese"
+private let jmDictDescriptionString = "The JMDict Project"
+private let jmDictURLString = "https://www.edrdg.org/jmdict/j_jmdict.html"
+private let kanjiVGDescriptionString = "KanjiVG"
+private let kanjiVGURL = "https://kanjivg.tagaini.net"
+
+
+private let appInformation = "Kanji Kitsune is a flashcard app for memorizing the most commonly used kanji, which is probably one of the most challenging and time-consuming hurdles in learning Japanese. It is intended for learners who have a basic understanding of how hiragana, katakana, and kanji work. If you are a complete beginner in Japanese, I would recommend that you start off with a textbook like \(genkiDescriptionString) before using this app.\n\nThe kanji data come from developer \(kanjiDescriptionString) on GitHub. The word data and example sentences come from \(jmDictDescriptionString). And the kanji stroke diagrams are from \(kanjiVGDescriptionString) by Ulrich Apel.\n\nThank you for your interest in the app - I hope it can help you in your studies. :)\n\n-Nicholas"
 

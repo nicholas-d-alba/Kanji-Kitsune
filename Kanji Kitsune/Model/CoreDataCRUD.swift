@@ -370,6 +370,28 @@ class PersistentDataManager {
         }
     }
     
+    // MARK: Core Data Deletion
+    
+    func clear() {
+        let kanjiDeletionFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Kanji")
+        let kanjiDeletionRequest = NSBatchDeleteRequest(fetchRequest: kanjiDeletionFetch)
+        do {
+            try context.execute(kanjiDeletionRequest)
+            try context.save()
+        } catch {
+            print ("Couldn't delete all data.")
+        }
+        
+        let kanjiResourcesDeletionFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Kanji")
+        let kanjiResourcesDeletionRequest = NSBatchDeleteRequest(fetchRequest: kanjiResourcesDeletionFetch)
+        do {
+            try context.execute(kanjiResourcesDeletionRequest)
+            try context.save()
+        } catch {
+            print ("Couldn't delete all data.")
+        }
+    }
+    
     // MARK: Properties
     
     let context: NSManagedObjectContext

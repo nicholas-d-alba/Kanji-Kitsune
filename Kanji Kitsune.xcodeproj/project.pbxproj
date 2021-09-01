@@ -19,8 +19,6 @@
 		4E5CF74A26C87B2C00124416 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5CF74926C87B2C00124416 /* ContainerViewController.swift */; };
 		4E5CF75026C88F9F00124416 /* ViewController Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5CF74F26C88F9F00124416 /* ViewController Extensions.swift */; };
 		4E5CF75226C9CFA600124416 /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5CF75126C9CFA600124416 /* ProgressIndicator.swift */; };
-		4E63DC96268E509C008A70E5 /* Dictionary Output File 1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4E63DC95268E509C008A70E5 /* Dictionary Output File 1.txt */; };
-		4E63DC9C268E560E008A70E5 /* Dictionary Metadata in Resources */ = {isa = PBXBuildFile; fileRef = 4E63DC9B268E560E008A70E5 /* Dictionary Metadata */; };
 		4E70495C26CC818000730D8A /* Mastery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70495B26CC818000730D8A /* Mastery.swift */; };
 		4E70495E26CE457500730D8A /* KanjiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70495D26CE457500730D8A /* KanjiTableViewCell.swift */; };
 		4E70496426CF415900730D8A /* Attributed String Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70496326CF415900730D8A /* Attributed String Extensions.swift */; };
@@ -2217,25 +2215,6 @@
 		4ECA11052679BD160034E0CA /* JLPTSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA11042679BD160034E0CA /* JLPTSelectionViewController.swift */; };
 		4ECA110A2679BD1A0034E0CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA11092679BD1A0034E0CA /* Assets.xcassets */; };
 		4ECA110D2679BD1A0034E0CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA110B2679BD1A0034E0CA /* LaunchScreen.storyboard */; };
-		4ECB141F268EC3BF00538D28 /* Dictionary Output File 2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB140C268EC3BF00538D28 /* Dictionary Output File 2.txt */; };
-		4ECB1420268EC3BF00538D28 /* Dictionary Output File 10.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB140D268EC3BF00538D28 /* Dictionary Output File 10.txt */; };
-		4ECB1421268EC3BF00538D28 /* Dictionary Output File 12.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB140E268EC3BF00538D28 /* Dictionary Output File 12.txt */; };
-		4ECB1422268EC3BF00538D28 /* Dictionary Output File 3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB140F268EC3BF00538D28 /* Dictionary Output File 3.txt */; };
-		4ECB1423268EC3BF00538D28 /* Dictionary Output File 15.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB1410268EC3BF00538D28 /* Dictionary Output File 15.txt */; };
-		4ECB1424268EC3BF00538D28 /* Dictionary Output File 4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB1411268EC3BF00538D28 /* Dictionary Output File 4.txt */; };
-		4ECB1425268EC3BF00538D28 /* Dictionary Output File 11.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB1412268EC3BF00538D28 /* Dictionary Output File 11.txt */; };
-		4ECB1426268EC3BF00538D28 /* Dictionary Output File 18.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB1413268EC3BF00538D28 /* Dictionary Output File 18.txt */; };
-		4ECB1427268EC3BF00538D28 /* Dictionary Output File 9.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB1414268EC3BF00538D28 /* Dictionary Output File 9.txt */; };
-		4ECB1428268EC3BF00538D28 /* Dictionary Output File 19.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB1415268EC3BF00538D28 /* Dictionary Output File 19.txt */; };
-		4ECB1429268EC3BF00538D28 /* Dictionary Output File 5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB1416268EC3BF00538D28 /* Dictionary Output File 5.txt */; };
-		4ECB142A268EC3BF00538D28 /* Dictionary Output File 7.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB1417268EC3BF00538D28 /* Dictionary Output File 7.txt */; };
-		4ECB142B268EC3BF00538D28 /* Dictionary Output File 14.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB1418268EC3BF00538D28 /* Dictionary Output File 14.txt */; };
-		4ECB142C268EC3BF00538D28 /* Dictionary Output File 17.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB1419268EC3BF00538D28 /* Dictionary Output File 17.txt */; };
-		4ECB142D268EC3BF00538D28 /* Dictionary Output File 6.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB141A268EC3BF00538D28 /* Dictionary Output File 6.txt */; };
-		4ECB142E268EC3BF00538D28 /* Dictionary Output File 8.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB141B268EC3BF00538D28 /* Dictionary Output File 8.txt */; };
-		4ECB142F268EC3BF00538D28 /* Dictionary Output File 20.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB141C268EC3BF00538D28 /* Dictionary Output File 20.txt */; };
-		4ECB1430268EC3BF00538D28 /* Dictionary Output File 16.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB141D268EC3BF00538D28 /* Dictionary Output File 16.txt */; };
-		4ECB1431268EC3BF00538D28 /* Dictionary Output File 13.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4ECB141E268EC3BF00538D28 /* Dictionary Output File 13.txt */; };
 		4ECB1433268EE36A00538D28 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECB1432268EE36A00538D28 /* Entry.swift */; };
 		4ECB14352690CCED00538D28 /* WordExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECB14342690CCED00538D28 /* WordExtractor.swift */; };
 		4EF906A326A7D2D50009B98C /* KanjiQuizzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF906A226A7D2D50009B98C /* KanjiQuizzer.swift */; };
@@ -2274,8 +2253,6 @@
 		4E5CF74926C87B2C00124416 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		4E5CF74F26C88F9F00124416 /* ViewController Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController Extensions.swift"; sourceTree = "<group>"; };
 		4E5CF75126C9CFA600124416 /* ProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicator.swift; sourceTree = "<group>"; };
-		4E63DC95268E509C008A70E5 /* Dictionary Output File 1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 1.txt"; sourceTree = "<group>"; };
-		4E63DC9B268E560E008A70E5 /* Dictionary Metadata */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Dictionary Metadata"; sourceTree = "<group>"; };
 		4E70495B26CC818000730D8A /* Mastery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mastery.swift; sourceTree = "<group>"; };
 		4E70495D26CE457500730D8A /* KanjiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiTableViewCell.swift; sourceTree = "<group>"; };
 		4E70496326CF415900730D8A /* Attributed String Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attributed String Extensions.swift"; sourceTree = "<group>"; };
@@ -4474,25 +4451,6 @@
 		4ECA11092679BD1A0034E0CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4ECA110C2679BD1A0034E0CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4ECA110E2679BD1A0034E0CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4ECB140C268EC3BF00538D28 /* Dictionary Output File 2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 2.txt"; sourceTree = "<group>"; };
-		4ECB140D268EC3BF00538D28 /* Dictionary Output File 10.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 10.txt"; sourceTree = "<group>"; };
-		4ECB140E268EC3BF00538D28 /* Dictionary Output File 12.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 12.txt"; sourceTree = "<group>"; };
-		4ECB140F268EC3BF00538D28 /* Dictionary Output File 3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 3.txt"; sourceTree = "<group>"; };
-		4ECB1410268EC3BF00538D28 /* Dictionary Output File 15.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 15.txt"; sourceTree = "<group>"; };
-		4ECB1411268EC3BF00538D28 /* Dictionary Output File 4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 4.txt"; sourceTree = "<group>"; };
-		4ECB1412268EC3BF00538D28 /* Dictionary Output File 11.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 11.txt"; sourceTree = "<group>"; };
-		4ECB1413268EC3BF00538D28 /* Dictionary Output File 18.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 18.txt"; sourceTree = "<group>"; };
-		4ECB1414268EC3BF00538D28 /* Dictionary Output File 9.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 9.txt"; sourceTree = "<group>"; };
-		4ECB1415268EC3BF00538D28 /* Dictionary Output File 19.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 19.txt"; sourceTree = "<group>"; };
-		4ECB1416268EC3BF00538D28 /* Dictionary Output File 5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 5.txt"; sourceTree = "<group>"; };
-		4ECB1417268EC3BF00538D28 /* Dictionary Output File 7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 7.txt"; sourceTree = "<group>"; };
-		4ECB1418268EC3BF00538D28 /* Dictionary Output File 14.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 14.txt"; sourceTree = "<group>"; };
-		4ECB1419268EC3BF00538D28 /* Dictionary Output File 17.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 17.txt"; sourceTree = "<group>"; };
-		4ECB141A268EC3BF00538D28 /* Dictionary Output File 6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 6.txt"; sourceTree = "<group>"; };
-		4ECB141B268EC3BF00538D28 /* Dictionary Output File 8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 8.txt"; sourceTree = "<group>"; };
-		4ECB141C268EC3BF00538D28 /* Dictionary Output File 20.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 20.txt"; sourceTree = "<group>"; };
-		4ECB141D268EC3BF00538D28 /* Dictionary Output File 16.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 16.txt"; sourceTree = "<group>"; };
-		4ECB141E268EC3BF00538D28 /* Dictionary Output File 13.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Dictionary Output File 13.txt"; sourceTree = "<group>"; };
 		4ECB1432268EE36A00538D28 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		4ECB14342690CCED00538D28 /* WordExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordExtractor.swift; sourceTree = "<group>"; };
 		4EF906A226A7D2D50009B98C /* KanjiQuizzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiQuizzer.swift; sourceTree = "<group>"; };
@@ -4544,34 +4502,6 @@
 				4E2C6DC126BBEC1200A28831 /* KanjiResources.txt */,
 			);
 			path = "JSON Files";
-			sourceTree = "<group>";
-		};
-		4E63DC97268E50E0008A70E5 /* Dictionary Files */ = {
-			isa = PBXGroup;
-			children = (
-				4E63DC9B268E560E008A70E5 /* Dictionary Metadata */,
-				4E63DC95268E509C008A70E5 /* Dictionary Output File 1.txt */,
-				4ECB140C268EC3BF00538D28 /* Dictionary Output File 2.txt */,
-				4ECB140F268EC3BF00538D28 /* Dictionary Output File 3.txt */,
-				4ECB1411268EC3BF00538D28 /* Dictionary Output File 4.txt */,
-				4ECB1416268EC3BF00538D28 /* Dictionary Output File 5.txt */,
-				4ECB141A268EC3BF00538D28 /* Dictionary Output File 6.txt */,
-				4ECB1417268EC3BF00538D28 /* Dictionary Output File 7.txt */,
-				4ECB141B268EC3BF00538D28 /* Dictionary Output File 8.txt */,
-				4ECB1414268EC3BF00538D28 /* Dictionary Output File 9.txt */,
-				4ECB140D268EC3BF00538D28 /* Dictionary Output File 10.txt */,
-				4ECB1412268EC3BF00538D28 /* Dictionary Output File 11.txt */,
-				4ECB140E268EC3BF00538D28 /* Dictionary Output File 12.txt */,
-				4ECB141E268EC3BF00538D28 /* Dictionary Output File 13.txt */,
-				4ECB1418268EC3BF00538D28 /* Dictionary Output File 14.txt */,
-				4ECB1410268EC3BF00538D28 /* Dictionary Output File 15.txt */,
-				4ECB141D268EC3BF00538D28 /* Dictionary Output File 16.txt */,
-				4ECB1419268EC3BF00538D28 /* Dictionary Output File 17.txt */,
-				4ECB1413268EC3BF00538D28 /* Dictionary Output File 18.txt */,
-				4ECB1415268EC3BF00538D28 /* Dictionary Output File 19.txt */,
-				4ECB141C268EC3BF00538D28 /* Dictionary Output File 20.txt */,
-			);
-			path = "Dictionary Files";
 			sourceTree = "<group>";
 		};
 		4E63DC98268E517B008A70E5 /* Supporting Files */ = {
@@ -6840,7 +6770,6 @@
 				4EF906DC26B0CA4A0009B98C /* Views */,
 				4E63DC99268E51BD008A70E5 /* View Controllers */,
 				4E63DC98268E517B008A70E5 /* Supporting Files */,
-				4E63DC97268E50E0008A70E5 /* Dictionary Files */,
 				4E2C6DBC26BB58E100A28831 /* JSON Files */,
 			);
 			path = "Kanji Kitsune";
@@ -7097,7 +7026,6 @@
 				4EB42E7026C495A000062E1E /* 弦.svg in Resources */,
 				4EB42FB026C495A000062E1E /* 扶.svg in Resources */,
 				4EB434A326C495A200062E1E /* 私.svg in Resources */,
-				4ECB1423268EC3BF00538D28 /* Dictionary Output File 15.txt in Resources */,
 				4EB434C326C495A200062E1E /* 鞠.svg in Resources */,
 				4EB4351F26C495A300062E1E /* 槽.svg in Resources */,
 				4EB4341E26C495A200062E1E /* 曜.svg in Resources */,
@@ -7245,7 +7173,6 @@
 				4EB430AF26C495A100062E1E /* 均.svg in Resources */,
 				4EB4316A26C495A100062E1E /* 面.svg in Resources */,
 				4EB435EA26C495A300062E1E /* 停.svg in Resources */,
-				4ECB1421268EC3BF00538D28 /* Dictionary Output File 12.txt in Resources */,
 				4EB434F726C495A300062E1E /* 遭.svg in Resources */,
 				4EB4344C26C495A200062E1E /* 香.svg in Resources */,
 				4EB42E2826C495A000062E1E /* 毅.svg in Resources */,
@@ -7368,7 +7295,6 @@
 				4EB42E1326C495A000062E1E /* 駐.svg in Resources */,
 				4EB4310426C495A100062E1E /* 当.svg in Resources */,
 				4EB430DB26C495A100062E1E /* 阿.svg in Resources */,
-				4ECB142D268EC3BF00538D28 /* Dictionary Output File 6.txt in Resources */,
 				4EB430F726C495A100062E1E /* 悌.svg in Resources */,
 				4EB42F1E26C495A000062E1E /* 泣.svg in Resources */,
 				4EB42E3D26C495A000062E1E /* 群.svg in Resources */,
@@ -7385,7 +7311,6 @@
 				4EB4312226C495A100062E1E /* 懐.svg in Resources */,
 				4EB4316326C495A100062E1E /* 腰.svg in Resources */,
 				4EB4334B26C495A200062E1E /* 邦.svg in Resources */,
-				4ECB1424268EC3BF00538D28 /* Dictionary Output File 4.txt in Resources */,
 				4EB4360826C495A300062E1E /* 問.svg in Resources */,
 				4EB4302126C495A000062E1E /* 八.svg in Resources */,
 				4EB4346026C495A200062E1E /* 製.svg in Resources */,
@@ -7478,7 +7403,6 @@
 				4EB42EA426C495A000062E1E /* 臭.svg in Resources */,
 				4EB42F7126C495A000062E1E /* 鉄.svg in Resources */,
 				4EB42F1526C495A000062E1E /* 悪.svg in Resources */,
-				4ECB1425268EC3BF00538D28 /* Dictionary Output File 11.txt in Resources */,
 				4EB430D726C495A100062E1E /* 浦.svg in Resources */,
 				4EB42F8826C495A000062E1E /* 湾.svg in Resources */,
 				4EB432F326C495A200062E1E /* 迪.svg in Resources */,
@@ -7570,7 +7494,6 @@
 				4EB4332126C495A200062E1E /* 晃.svg in Resources */,
 				4EB4333F26C495A200062E1E /* 運.svg in Resources */,
 				4EB42E0A26C495A000062E1E /* 駆.svg in Resources */,
-				4ECB1428268EC3BF00538D28 /* Dictionary Output File 19.txt in Resources */,
 				4EB435FF26C495A300062E1E /* 蝶.svg in Resources */,
 				4EB4333A26C495A200062E1E /* 逝.svg in Resources */,
 				4EB434D226C495A300062E1E /* 戯.svg in Resources */,
@@ -7607,7 +7530,6 @@
 				4EB4322B26C495A100062E1E /* 升.svg in Resources */,
 				4EB4364526C495A300062E1E /* 魂.svg in Resources */,
 				4EB42E9826C495A000062E1E /* 税.svg in Resources */,
-				4E63DC9C268E560E008A70E5 /* Dictionary Metadata in Resources */,
 				4EB435D826C495A300062E1E /* 充.svg in Resources */,
 				4EB430E426C495A100062E1E /* 戒.svg in Resources */,
 				4EB4340F26C495A200062E1E /* 丹.svg in Resources */,
@@ -7709,7 +7631,6 @@
 				4EB430EB26C495A100062E1E /* 裂.svg in Resources */,
 				4EB435BE26C495A300062E1E /* 禄.svg in Resources */,
 				4EB42FC826C495A000062E1E /* 緒.svg in Resources */,
-				4ECB142A268EC3BF00538D28 /* Dictionary Output File 7.txt in Resources */,
 				4EB431C126C495A100062E1E /* 隔.svg in Resources */,
 				4EB434DE26C495A300062E1E /* 統.svg in Resources */,
 				4EB42EBC26C495A000062E1E /* 粛.svg in Resources */,
@@ -7765,7 +7686,6 @@
 				4EB432E926C495A200062E1E /* 卒.svg in Resources */,
 				4EB42EE326C495A000062E1E /* 誓.svg in Resources */,
 				4EB4349626C495A200062E1E /* 藻.svg in Resources */,
-				4ECB1429268EC3BF00538D28 /* Dictionary Output File 5.txt in Resources */,
 				4EB432E026C495A200062E1E /* 才.svg in Resources */,
 				4EB42E3226C495A000062E1E /* 森.svg in Resources */,
 				4EB434CD26C495A300062E1E /* 緋.svg in Resources */,
@@ -7803,7 +7723,6 @@
 				4EB4322C26C495A100062E1E /* 轄.svg in Resources */,
 				4EB431BF26C495A100062E1E /* 載.svg in Resources */,
 				4EB431A926C495A100062E1E /* 尾.svg in Resources */,
-				4ECB1422268EC3BF00538D28 /* Dictionary Output File 3.txt in Resources */,
 				4EB42FEC26C495A000062E1E /* 屋.svg in Resources */,
 				4EB4304326C495A000062E1E /* 黒.svg in Resources */,
 				4EB4317426C495A100062E1E /* 句.svg in Resources */,
@@ -7985,7 +7904,6 @@
 				4EB432A226C495A100062E1E /* 忠.svg in Resources */,
 				4EB435D526C495A300062E1E /* 渡.svg in Resources */,
 				4EB4315126C495A100062E1E /* 窒.svg in Resources */,
-				4ECB1420268EC3BF00538D28 /* Dictionary Output File 10.txt in Resources */,
 				4EB435FC26C495A300062E1E /* 殉.svg in Resources */,
 				4EB432A926C495A100062E1E /* 垣.svg in Resources */,
 				4EB4329E26C495A100062E1E /* 圏.svg in Resources */,
@@ -8060,7 +7978,6 @@
 				4EB42F5A26C495A000062E1E /* 韻.svg in Resources */,
 				4EB430FD26C495A100062E1E /* 眼.svg in Resources */,
 				4EB4338C26C495A200062E1E /* 併.svg in Resources */,
-				4ECB142E268EC3BF00538D28 /* Dictionary Output File 8.txt in Resources */,
 				4EB4318726C495A100062E1E /* 傘.svg in Resources */,
 				4EB4314326C495A100062E1E /* 輝.svg in Resources */,
 				4EB4364F26C495A300062E1E /* 兄.svg in Resources */,
@@ -8109,7 +8026,6 @@
 				4EB4305426C495A000062E1E /* 紘.svg in Resources */,
 				4EB42F2B26C495A000062E1E /* 版.svg in Resources */,
 				4EB435C626C495A300062E1E /* 乙.svg in Resources */,
-				4ECB141F268EC3BF00538D28 /* Dictionary Output File 2.txt in Resources */,
 				4EB434B426C495A200062E1E /* 省.svg in Resources */,
 				4EB42F0C26C495A000062E1E /* 瀬.svg in Resources */,
 				4EB431E326C495A100062E1E /* 嬉.svg in Resources */,
@@ -8169,7 +8085,6 @@
 				4EB434C426C495A200062E1E /* 簿.svg in Resources */,
 				4EB433F526C495A200062E1E /* 寺.svg in Resources */,
 				4EB4340C26C495A200062E1E /* 燦.svg in Resources */,
-				4ECB1431268EC3BF00538D28 /* Dictionary Output File 13.txt in Resources */,
 				4EB4319126C495A100062E1E /* 記.svg in Resources */,
 				4EB42F0426C495A000062E1E /* 催.svg in Resources */,
 				4EB4310326C495A100062E1E /* 貞.svg in Resources */,
@@ -8347,7 +8262,6 @@
 				4EB432FA26C495A200062E1E /* 山.svg in Resources */,
 				4EB435D326C495A300062E1E /* 昴.svg in Resources */,
 				4EB4341726C495A200062E1E /* 閑.svg in Resources */,
-				4ECB142F268EC3BF00538D28 /* Dictionary Output File 20.txt in Resources */,
 				4EB42FDA26C495A000062E1E /* 輪.svg in Resources */,
 				4EB42DDF26C4959F00062E1E /* 亭.svg in Resources */,
 				4EB42EC226C495A000062E1E /* 参.svg in Resources */,
@@ -8528,7 +8442,6 @@
 				4EB42F5726C495A000062E1E /* 寅.svg in Resources */,
 				4EB4313D26C495A100062E1E /* 尽.svg in Resources */,
 				4EB4300B26C495A000062E1E /* 般.svg in Resources */,
-				4E63DC96268E509C008A70E5 /* Dictionary Output File 1.txt in Resources */,
 				4EB4347326C495A200062E1E /* 頭.svg in Resources */,
 				4EB4326926C495A100062E1E /* 佳.svg in Resources */,
 				4EB430CE26C495A100062E1E /* 効.svg in Resources */,
@@ -8590,7 +8503,6 @@
 				4EB42F3926C495A000062E1E /* 親.svg in Resources */,
 				4EB431C726C495A100062E1E /* 敢.svg in Resources */,
 				4EB42FF026C495A000062E1E /* 密.svg in Resources */,
-				4ECB142C268EC3BF00538D28 /* Dictionary Output File 17.txt in Resources */,
 				4EB4341F26C495A200062E1E /* 年.svg in Resources */,
 				4EB4321326C495A100062E1E /* 研.svg in Resources */,
 				4EB435DB26C495A300062E1E /* 亡.svg in Resources */,
@@ -8787,7 +8699,6 @@
 				4EB435EB26C495A300062E1E /* 修.svg in Resources */,
 				4EB42E5F26C495A000062E1E /* 乃.svg in Resources */,
 				4EB4324B26C495A100062E1E /* 率.svg in Resources */,
-				4ECB1427268EC3BF00538D28 /* Dictionary Output File 9.txt in Resources */,
 				4EB4360F26C495A300062E1E /* 券.svg in Resources */,
 				4EB4357126C495A300062E1E /* 痛.svg in Resources */,
 				4EB435DA26C495A300062E1E /* 鵬.svg in Resources */,
@@ -8884,7 +8795,6 @@
 				4EB4354026C495A300062E1E /* 鉛.svg in Resources */,
 				4EB42E3F26C495A000062E1E /* 貿.svg in Resources */,
 				4EB42E1C26C495A000062E1E /* 旨.svg in Resources */,
-				4ECB1426268EC3BF00538D28 /* Dictionary Output File 18.txt in Resources */,
 				4EB4341A26C495A200062E1E /* 幣.svg in Resources */,
 				4EB435CE26C495A300062E1E /* 不.svg in Resources */,
 				4EB42F6526C495A000062E1E /* 枝.svg in Resources */,
@@ -8973,7 +8883,6 @@
 				4EB42E3E26C495A000062E1E /* 災.svg in Resources */,
 				4EB4307726C495A100062E1E /* 獣.svg in Resources */,
 				4EB4345726C495A200062E1E /* 軒.svg in Resources */,
-				4ECB142B268EC3BF00538D28 /* Dictionary Output File 14.txt in Resources */,
 				4EB4315B26C495A100062E1E /* 畝.svg in Resources */,
 				4EB42F9226C495A000062E1E /* 作.svg in Resources */,
 				4EB4309126C495A100062E1E /* 仏.svg in Resources */,
@@ -9042,7 +8951,6 @@
 				4EB42FC026C495A000062E1E /* 拍.svg in Resources */,
 				4EB432FF26C495A200062E1E /* 潜.svg in Resources */,
 				4EB42E7C26C495A000062E1E /* 塑.svg in Resources */,
-				4ECB1430268EC3BF00538D28 /* Dictionary Output File 16.txt in Resources */,
 				4EB432D726C495A200062E1E /* 洸.svg in Resources */,
 				4EB431F426C495A100062E1E /* 惜.svg in Resources */,
 				4EB435B426C495A300062E1E /* 激.svg in Resources */,

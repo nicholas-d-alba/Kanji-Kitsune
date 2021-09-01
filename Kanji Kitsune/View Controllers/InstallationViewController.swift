@@ -131,6 +131,7 @@ class InstallationViewController: UIViewController {
 
         child.perform {
             let dataManager = PersistentDataManager(context: self.context)
+            dataManager.clear()
             dataManager.setUpKanjiIfNeeded()
             print("Kanji have been set up.")
             guard let kanjiResources = dataManager.deserializeKanjiResourcesFromJSON() else {return}

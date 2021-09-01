@@ -12,36 +12,10 @@ struct KanjiQuiz {
     
     // MARK: Initializers
     
-    init(withContext context: NSManagedObjectContext, ofLength quizLength: Int, jlptLevels: [Int]) {
+    init(withContext context: NSManagedObjectContext, ofLength quizLength: Int, kanji kanjiPool: [Kanji]) {
         dataManager = PersistentDataManager(context: context)
-        let kanjiInRequestedLevels = dataManager.loadKanji(withJLPTLevels: jlptLevels)
-        let selectedKanji = selectKanji(quizLength, fromKanji: kanjiInRequestedLevels)
-        for individualKanji in selectedKanji {
-            print(individualKanji)
-        }
-        print("")
-
+        let selectedKanji = selectKanji(quizLength, fromKanji: kanjiPool)
         retrieveResources(forKanji: selectedKanji)
-        print(kanji.count)
-        print(hintLists.count)
-        print(wordLists.count)
-        
-        for i in 0..<kanji.count {
-            print(kanji[i])
-            guard let hintList = hintLists[i], let wordList = wordLists[i] else {
-                print("MISSING HINTS OR WORDS")
-                print(String(describing: hintLists[i]))
-                print(String(describing: wordLists[i]))
-                continue
-            }
-            for hint in hintList {
-                print(hint)
-            }
-            for word in wordList {
-                print(word)
-            }
-            print("")
-        }
     }
     
     
@@ -159,6 +133,38 @@ struct KanjiQuiz {
             let index = selectedResources.firstIndex(where: {$0.name! == individualKanji.name!})
             hintLists.append(index == nil ? nil : selectedHints[index!])
             wordLists.append(index == nil ? nil : selectedWords[index!])
+        }
+    }
+    
+    // MARK: Debugging
+    
+    private func printQuiz() {
+        print("NEW QUIZ:")
+        print("\(kanji.count) kanji")
+        print("\(wordLists.count) words")
+        print("\(hintLists.count) hints\n")
+        
+        print("Selected Kanji:")
+        for character in kanji {
+            print(character)
+        }
+        print("")
+        
+        for i in 0..<kanji.count {
+            print(kanji[i])
+            guard let hintList = hintLists[i], let wordList = wordLists[i] else {
+                print("MISSING HINTS OR WORDS")
+                print(String(describing: hintLists[i]))
+                print(String(describing: wordLists[i]))
+                continue
+            }
+            for hint in hintList {
+                print(hint)
+            }
+            for word in wordList {
+                print(word)
+            }
+            print("")
         }
     }
     

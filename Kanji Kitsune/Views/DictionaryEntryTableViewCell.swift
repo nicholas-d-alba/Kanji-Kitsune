@@ -100,10 +100,14 @@ class DictionaryEntryTableViewCell: UITableViewCell {
                 }
             }
             
-            let (containerView, _, suffixLabel) = spellingAndReadingView(forSpellingLabel: prefixLabel, associatedReadings: associatedReadings, width: maxWidthAnchor)
+            let (containerView, _, suffixLabel) = spellingAndReadingView(forSpellingLabel: prefixLabel, associatedReadings: associatedReadings)
             containers.append(containerView)
             suffixLabels.append(suffixLabel)
             spellingsStackView.addArrangedSubview(containerView)
+            NSLayoutConstraint.activate([
+                containerView.leadingAnchor.constraint(equalTo: spellingsStackView.leadingAnchor),
+                containerView.trailingAnchor.constraint(equalTo: spellingsStackView.trailingAnchor)
+            ])
         }
         
         for i in 0..<containers.count {
@@ -114,8 +118,9 @@ class DictionaryEntryTableViewCell: UITableViewCell {
                 suffixLabels[i].leadingAnchor.constraint(equalTo: prefixLabels[i].trailingAnchor),
                 suffixLabels[i].firstBaselineAnchor.constraint(equalTo: prefixLabels[i].firstBaselineAnchor),
                 suffixLabels[i].bottomAnchor.constraint(equalTo: containers[i].bottomAnchor),
-                suffixLabels[i].trailingAnchor.constraint(equalTo: containers[i].trailingAnchor)
-            ])
+                suffixLabels[i].trailingAnchor.constraint(equalTo: containers[i].trailingAnchor),
+            ])            
+            prefixLabels[i].setContentCompressionResistancePriority(.required, for: .horizontal)
         }
     }
     
@@ -191,7 +196,7 @@ class DictionaryEntryTableViewCell: UITableViewCell {
         }
     }
     
-    private func spellingAndReadingView(forSpellingLabel spellingLabel: UILabel, associatedReadings: [String], width: NSLayoutDimension) -> (UIView, UILabel, UILabel)  {
+    private func spellingAndReadingView(forSpellingLabel spellingLabel: UILabel, associatedReadings: [String]) -> (UIView, UILabel, UILabel)  {
         let containerView = UIView()
         containerView.translatesAutoresizingMaskIntoConstraints = false
         let readingsLabel = suffixLabel(forReadings: associatedReadings)
@@ -214,21 +219,6 @@ class DictionaryEntryTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 26, weight: .regular)
         label.text = readings.joined(separator: ", ")
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
-        return label
-    }
-    
-    private func attributedLine(forSpelling spelling: String, readings: [String]) -> NSAttributedString {
-        let spellingAttributedString = NSAttributedString(string: "\(spelling): ", attributes: [.font: UIFont.systemFont(ofSize: 26, weight: .bold)])
-        let readingsAttributedString = NSAttributedString(string: readings.joined(separator: ", "), attributes: [.font: UIFont.systemFont(ofSize: 26, weight: .regular)])
-        return spellingAttributedString + readingsAttributedString
-    }
-    
-    private func spellingAndReadingsLabel(withAttributedLine attributedLine: NSAttributedString) -> UILabel {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.attributedText = attributedLine
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
         return label

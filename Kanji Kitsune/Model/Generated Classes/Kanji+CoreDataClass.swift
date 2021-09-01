@@ -33,4 +33,8 @@ public class Kanji: NSManagedObject {
         return ""
     }
     
+    public var isMastered: Bool {
+        return Int(mastery) < 2
+    }
+    
 }

@@ -156,7 +156,9 @@ class KanjiQuizViewController: UIViewController, UITableViewDataSource, UITableV
         view.addSubview(rememberedKanjiButton)
         NSLayoutConstraint.activate([
             rememberedKanjiButton.centerYAnchor.constraint(equalTo: submitDrawingButton.centerYAnchor),
-            rememberedKanjiButton.leadingAnchor.constraint(equalTo: canvas.leadingAnchor)
+            rememberedKanjiButton.leadingAnchor.constraint(equalTo: canvas.leadingAnchor),
+            rememberedKanjiButton.widthAnchor.constraint(equalTo: rememberedKanjiButton.heightAnchor),
+            rememberedKanjiButton.heightAnchor.constraint(equalTo: submitDrawingButton.heightAnchor)
         ])
         
         rememberedKanjiButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
@@ -166,7 +168,9 @@ class KanjiQuizViewController: UIViewController, UITableViewDataSource, UITableV
         view.addSubview(forgotKanjiButton)
         NSLayoutConstraint.activate([
             forgotKanjiButton.centerYAnchor.constraint(equalTo: submitDrawingButton.centerYAnchor),
-            forgotKanjiButton.trailingAnchor.constraint(equalTo: canvas.trailingAnchor)
+            forgotKanjiButton.trailingAnchor.constraint(equalTo: canvas.trailingAnchor),
+            forgotKanjiButton.widthAnchor.constraint(equalTo: forgotKanjiButton.heightAnchor),
+            forgotKanjiButton.heightAnchor.constraint(equalTo: submitDrawingButton.heightAnchor)
         ])
         
         forgotKanjiButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
@@ -228,6 +232,39 @@ class KanjiQuizViewController: UIViewController, UITableViewDataSource, UITableV
         removeQuizzingSubviews()
         navigationItem.title = "Quiz Complete"
         
+        view.addSubview(forgottenKanjiLabel)
+        view.addSubview(scoreLabel)
+        forgottenKanjiLabel.textColor = textColor
+        scoreLabel.textColor = textColor
+        scoreLabel.text = "Score: \(kanjiQuiz.kanjiRemembered.count)/\(kanjiQuiz.quizLength)"
+        
+        if kanjiQuiz.kanjiForgotten.isEmpty {
+            displayResultsForPerfectScore()
+        } else {
+            displayResultsForImperfectScore()
+        }
+    }
+    
+    private func displayResultsForPerfectScore() {
+        forgottenKanjiLabel.text = "No Unknown Kanji"
+        
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.alignment = .center
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        stackView.addArrangedSubview(scoreLabel)
+        stackView.addArrangedSubview(forgottenKanjiLabel)
+        view.addSubview(stackView)
+        
+        NSLayoutConstraint.activate([
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8)
+        ])
+    }
+    
+    private func displayResultsForImperfectScore() {
         view.addSubview(forgottenKanjiTableView)
         forgottenKanjiTableView.dataSource = self
         forgottenKanjiTableView.delegate = self
@@ -243,22 +280,18 @@ class KanjiQuizViewController: UIViewController, UITableViewDataSource, UITableV
         forgottenKanjiTableView.layer.borderColor = borderColor.cgColor
         forgottenKanjiTableView.backgroundColor = backgroundColor
         
-        view.addSubview(forgottenKanjiLabel)
-        forgottenKanjiLabel.textColor = textColor
         NSLayoutConstraint.activate([
             forgottenKanjiLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
             forgottenKanjiLabel.bottomAnchor.constraint(equalTo: forgottenKanjiTableView.topAnchor, constant: -8),
             forgottenKanjiLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8)
         ])
         
-        view.addSubview(scoreLabel)
-        scoreLabel.textColor = textColor
-        scoreLabel.text = "Score: \(kanjiQuiz.kanjiRemembered.count)/\(kanjiQuiz.quizLength)"
         NSLayoutConstraint.activate([
             scoreLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
             scoreLabel.bottomAnchor.constraint(equalTo: forgottenKanjiLabel.topAnchor, constant: -16),
             scoreLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8)
         ])
+    
     }
     
     private func removeQuizzingSubviews() {
@@ -408,7 +441,7 @@ class KanjiQuizViewController: UIViewController, UITableViewDataSource, UITableV
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
-        let attributedTitle = NSAttributedString(string: "Show Kanji Details", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .regular)])
+        let attributedTitle = NSAttributedString(string: "Show Kanji Details", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .bold)])
         button.setAttributedTitle(attributedTitle, for: .normal)
         return button
     }()
@@ -439,7 +472,7 @@ class KanjiQuizViewController: UIViewController, UITableViewDataSource, UITableV
     private let submitDrawingButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        let attributedTitle = NSAttributedString(string: "Submit", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .bold)])
+        let attributedTitle = NSAttributedString(string: "Submit", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 26, weight: .bold)])
         button.setAttributedTitle(attributedTitle, for: .normal)
         button.layer.borderWidth = 2
         return button
